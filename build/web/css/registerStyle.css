@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 9, 2021, 10:25:30 PM
+    Author     : Vu Duc Tien
+*/
+body {
+    background: url('https://www.cgv.vn/media/wysiwyg/about-8.JPG') fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.container{
+    top: 15%;
+    left:10%;
+    width: 100%;
+    height: 60%;
+    position: absolute;
+}
+.form-horizontal{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
