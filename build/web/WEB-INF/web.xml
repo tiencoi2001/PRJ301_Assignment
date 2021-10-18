@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>showingController</servlet-name>
-        <servlet-class>Controller.flim.showingController</servlet-class>
+        <servlet-class>Controller.flim.ShowingController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterController</servlet-name>
@@ -14,11 +14,15 @@
     </servlet>
     <servlet>
         <servlet-name>comingController</servlet-name>
-        <servlet-class>Controller.flim.comingController</servlet-class>
+        <servlet-class>Controller.flim.ComingController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controller.flim.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>Controller.flim.DetailController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

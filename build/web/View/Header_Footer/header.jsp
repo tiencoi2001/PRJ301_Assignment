@@ -18,7 +18,7 @@
             </div>
             <div class="header-top-account">
                 <div class="account-header-wrapper mn-login">
-                    <a href="#" class="topskip-link skip-account">
+                    <a href="login" class="topskip-link skip-account">
                         <span class="label">Account</span>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
 </div>
 <header id="header" class="page-header">
     <div class="page-header-container">
-        <a class="logo" href="#">
+        <a class="logo" href="home">
             <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo.png" alt="CGV Cinemas"
                  class="large" />
             <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/cgvlogo-small.png"
@@ -60,9 +60,9 @@
                                                                   class="level0 has-children">Movies</a>
                         <ul class="level0"> 
                             <li class="level1 nav-1-1 first"><a
-                                    href="#" class="level1 ">Now Showing</a></li>
+                                    href="showing" class="level1 ">Now Showing</a></li>
                             <li class="level1 nav-1-2 last"><a
-                                    href="#"
+                                    href="coming"
                                     class="level1 ">Coming Soon</a></li>
                         </ul>
                     </li>

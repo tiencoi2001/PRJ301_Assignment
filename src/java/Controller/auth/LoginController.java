@@ -52,8 +52,8 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
         UserDBContext db = new UserDBContext();
         User account = db.getUser(user, pass);
         if (account == null) {
@@ -61,7 +61,7 @@ public class LoginController extends HttpServlet {
             request.setAttribute("account", null);
             request.getRequestDispatcher("View/auth/login.jsp").forward(request, response);
         } else {
-            request.getSession().setAttribute("account", account);
+            response.sendRedirect("home");
         }
     }
 

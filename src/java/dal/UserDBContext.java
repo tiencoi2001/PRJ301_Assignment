@@ -25,11 +25,12 @@ public class UserDBContext extends DBContext {
                     + "  WHERE ([Phone] = ? OR [Email] = ?) AND [Password] =?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, acc);
-            stm.setString(2, pass);
+            stm.setString(2, acc);
+            stm.setString(3, pass);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 User user = new User();
-                user.setName(rs.getString("name"));
+                user.setName(rs.getString("Name"));
                 user.setPhone(rs.getString("Phone"));
                 user.setEmail(rs.getString("Email"));
                 user.setPass(rs.getString("Password"));
@@ -44,6 +45,12 @@ public class UserDBContext extends DBContext {
         }
         return null;
     }
+
+//    public static void main(String[] args) {
+//        UserDBContext udbc = new UserDBContext();
+//        User u = udbc.getUser("0983563147", "02072001");
+//        System.out.println(u.getName() + " " + u.getEmail() + " " + u.getPass());
+//    }
 
     public void insertUser(User user) {
         try {
@@ -65,7 +72,7 @@ public class UserDBContext extends DBContext {
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
-        try {
+            try {
                 connection.rollback();
             } catch (SQLException ex1) {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex1);
@@ -78,4 +85,6 @@ public class UserDBContext extends DBContext {
             }
         }
     }
+    
+    
 }

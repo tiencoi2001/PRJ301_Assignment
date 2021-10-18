@@ -12,6 +12,7 @@ public final class showing_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -21,10 +22,12 @@ public final class showing_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -140,27 +143,67 @@ public final class showing_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js\"></script>\n");
       out.write("        <script src=\"https://www.gstatic.com/firebasejs/8.2.1/firebase-messaging.js\"></script>\n");
       out.write("        <script src='https://www.cgv.vn/mto.js'></script>\n");
+      out.write("        <style>\n");
+      out.write("            body{\n");
+      out.write("                background-color: #FDFCF0 !important;\n");
+      out.write("            }\n");
+      out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <!-- Header-->\n");
-      out.write("        <div class=\"container\">\n");
-      out.write("            ");
+      out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../Header_Footer/header.jsp", out, false);
       out.write("\n");
-      out.write("                <!-- Section-->\n");
-      out.write("            ");
+      out.write("            <!-- Section-->\n");
+      out.write("            <div class=\"main-container col1-layout\">\n");
+      out.write("                <div class=\"breadcrumbs\" itemprop=\"breadcrumb\">\n");
+      out.write("                    <ul>\n");
+      out.write("                        <li class=\"home\">\n");
+      out.write("                            <a href=\"home\" title=\"home\">Trang chủ</a>\n");
+      out.write("                            <span>/ </span>\n");
+      out.write("                        </li>\n");
+      out.write("                        <li class=\"category3\">\n");
+      out.write("                            <a href=\"https://www.cgv.vn/default/movies.html\" title=\"\">Phim</a>\n");
+      out.write("                            <span>/ </span>\n");
+      out.write("                        </li>\n");
+      out.write("                        <li class=\"category5\">\n");
+      out.write("                            <strong>Now Showing</strong>\n");
+      out.write("                        </li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"main-container col1-layout\">\n");
+      out.write("                    <div class=\"main\">            \n");
+      out.write("                        <div class=\"col-main\">\n");
+      out.write("                            <div class=\"page-title category-title\">\n");
+      out.write("                                <h1>Now Showing</h1>\n");
+      out.write("                                <div class=\"sub-category\">\n");
+      out.write("                                    <ul>\n");
+      out.write("                                        <li>\n");
+      out.write("                                            <a href=\"https://www.cgv.vn/default/movies/coming-soon-1.html\">Coming Soon</a>\n");
+      out.write("                                        </li>\n");
+      out.write("                                    </ul>\n");
+      out.write("                                </div>\n");
+      out.write("                                <div class=\"dropdown-sub-category\">\n");
+      out.write("                                    <div id=\"myDropdown\" class=\"dropdown-content\">\n");
+      out.write("                                        <a href=\"https://www.cgv.vn/default/movies/coming-soon-1.html\">Coming Soon</a>\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\t\t\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"category-products cgv-movies\">\n");
+      out.write("                                <ul class=\"products-grid products-grid--max-4-col\">\n");
+      out.write("                                ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("                <!-- Footer-->\n");
+      out.write("                            </ul>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("            <!-- Footer-->\n");
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../Header_Footer/footer.jsp", out, false);
       out.write("\n");
-      out.write("        </div>\n");
-      out.write("        <!-- Bootstrap core JS-->\n");
-      out.write("        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>\n");
-      out.write("        <!-- Core theme JS-->\n");
-      out.write("        <script src=\"js/scripts.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
       out.write("\n");
@@ -193,61 +236,78 @@ public final class showing_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("                <div class=\"category-products cgv-movies\">\n");
-          out.write("                    <ul class=\"products-grid products-grid--max-4-col\">\n");
-          out.write("                        <li class=\"film-lists item last\">\n");
-          out.write("                            <span class=\"nmovie-rating nmovie-rating-c18\">f.note</span>\n");
-          out.write("                            <div class=\"product-images\">\n");
-          out.write("                                <a href=\"https://www.cgv.vn/default/lat-mat-48h.html\" class=\"product-image\">\n");
-          out.write("                                    <img src=\"");
+          out.write("                                    <li class=\"film-lists item last\">\n");
+          out.write("                                        <span class=\"nmovie-rating \n");
+          out.write("                                              ");
+          if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("                                              ");
+          if (_jspx_meth_c_if_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("                                              ");
+          if (_jspx_meth_c_if_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("                                              ");
+          if (_jspx_meth_c_if_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("                                              \">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.note}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</span>\n");
+          out.write("                                        <div class=\"product-images\">\n");
+          out.write("                                            <a href=\"detail?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"product-image\">\n");
+          out.write("                                                <img id=\"product-collection-image-2525\" src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" />\n");
-          out.write("                                </a>\n");
+          out.write("                                            </a>\n");
           out.write("\n");
-          out.write("                                <div class=\"movie-technology\">\n");
-          out.write("                                </div>\n");
-          out.write("                            </div>\n");
+          out.write("                                            <div class=\"movie-technology\">\n");
+          out.write("                                            </div>\n");
+          out.write("                                        </div>\n");
           out.write("\n");
-          out.write("                            <div class=\"product-info\">\n");
-          out.write("                                <h2 class=\"product-name\"><a href=\"https://www.cgv.vn/default/lat-mat-48h.html\">");
+          out.write("                                        <div class=\"product-info\">\n");
+          out.write("                                            <h2 class=\"product-name\"><a href=\"detail?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</a></h2>\n");
           out.write("\n");
-          out.write("                                <div class=\"cgv-movie-info\">\n");
-          out.write("                                    <span class=\"cgv-info-bold\">Thể loại: </span>\n");
-          out.write("                                    <span class=\"cgv-info-normal\">");
+          out.write("                                            <div class=\"cgv-movie-info\">\n");
+          out.write("                                                <span class=\"cgv-info-bold\">Thể loại: </span>\n");
+          out.write("                                                <span class=\"cgv-info-normal\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.genre}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</span>\n");
-          out.write("                                </div>\n");
+          out.write("                                            </div>\n");
           out.write("\n");
-          out.write("                                <div class=\"cgv-movie-info\">\n");
-          out.write("                                    <span class=\"cgv-info-bold\">Thời lượng: </span>\n");
-          out.write("                                    <span class=\"cgv-info-normal\">");
+          out.write("                                            <div class=\"cgv-movie-info\">\n");
+          out.write("                                                <span class=\"cgv-info-bold\">Thời lượng: </span>\n");
+          out.write("                                                <span class=\"cgv-info-normal\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.length}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</span>\n");
-          out.write("                                </div>\n");
+          out.write("                                            </div>\n");
           out.write("\n");
-          out.write("                                <div class=\"cgv-movie-info\">\n");
-          out.write("                                    <span class=\"cgv-info-bold\">Khởi chiếu: </span>\n");
-          out.write("                                    <span class=\"cgv-info-normal\">");
+          out.write("                                            <div class=\"cgv-movie-info\">\n");
+          out.write("                                                <span class=\"cgv-info-bold\">Khởi chiếu: </span>\n");
+          out.write("                                                <span class=\"cgv-info-normal\">");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.premiere}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</span>\n");
-          out.write("                                </div>\n");
-          out.write("                            </div>\n");
-          out.write("\n");
-          out.write("                            <ul class=\"add-to-links\">\n");
-          out.write("                                <li>\n");
-          out.write("                                    <button type=\"button\" title=\"Mua vé\" class=\"button btn-booking\">\n");
-          out.write("                                        <span><span>Mua vé</span></span></button>\n");
-          out.write("                                </li>\n");
-          out.write("                            </ul>\n");
-          out.write("                        </li>\n");
-          out.write("                        </li>\n");
-          out.write("                    </ul>\n");
-          out.write("                </div>\n");
-          out.write("                ");
+          out.write("                                            </div>\n");
+          out.write("                                        </div>\n");
+          out.write("                                        <ul class=\"add-to-links\">\n");
+          out.write("                                            <li>\n");
+          out.write("                                                <button type=\"button\" title=\"Mua vé\" class=\"button btn-booking\"><span><span>Mua vé</span></span></button>\n");
+          out.write("                                            </li>\n");
+          out.write("                                        </ul>\n");
+          out.write("                                    </li>\n");
+          out.write("                                ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -264,6 +324,118 @@ public final class showing_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.note eq \"C18\"}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                                                  nmovie-rating-c18\n");
+        out.write("                                              ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.note eq \"C16\"}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
+    if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                                                  nmovie-rating-c16\n");
+        out.write("                                              ");
+        int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.note eq \"C13\"}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
+    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                                                  nmovie-rating-c13\n");
+        out.write("                                              ");
+        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.note eq \"P\"}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_3 = _jspx_th_c_if_3.doStartTag();
+    if (_jspx_eval_c_if_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                                                  nmovie-rating-p\n");
+        out.write("                                              ");
+        int evalDoAfterBody = _jspx_th_c_if_3.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
     return false;
   }
 }

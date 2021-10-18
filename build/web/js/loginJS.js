@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var timer2 = "1:00";
-var isAllowed = true, isActive = false;
-var countAllowed = tempAllowed = 3;
+var dataForm = new VarienForm('cgv-login-form', true);
+var isAllowed = true;
+var countAllowed = tempAllowed = 4;
+var resendAllowed = 2;
 var slideIndex = 0;
 function showSlides() {
     var i;
@@ -28,15 +29,7 @@ function showSlides() {
 }
 showSlides(slideIndex = 0);
 
-// Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
-
-$j(document).ready(function () {
-    $j('input#cgv-btnlogin[type="button"]').val($j('input#cgv-btnlogin[type="button"]').val() + ' (' + countAllowed + ')');
-});
 

@@ -8,13 +8,14 @@ and open the template in the editor.
     Author     : Vu Duc Tien
 */
 body{
-    background-color: red;
+    background-color: #FDFCF0 !important;
 }
 
-.item img{
-    width: 1169px;
+#cboxLoadedContent .quick-booking>.tabs-cgv-movie-view-date>* {
+    padding: 20px;
+    margin: 0px;
 }
 
-.showing_comming{
-    display: flex;
+.slideshow-containe-movier .poster-film {
+    top: 5px !important
 }

@@ -7,59 +7,147 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top" class="no-js">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Now Showing</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/listStyle.css"/>-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>CGV Cinemas Vietnam</title>
+        <link rel="shortcut icon" href="https://www.cgv.vn/media/favicon/default/cgvcinemas-vietnam-favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/base/default/aw_blog/css/style.css" media="all" />
+        <script type="text/javascript" src="https://www.cgv.vn/js/prototype/prototype.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/lib/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/lib/jquery/noconflict.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/lib/ccard.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/prototype/validation.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/scriptaculous/builder.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/scriptaculous/effects.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/scriptaculous/dragdrop.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/scriptaculous/controls.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/scriptaculous/slider.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/varien/js.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/varien/form.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/mage/translate.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/mage/cookies.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/js/google/ga.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/modernizr.custom.min.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/selectivizr.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/matchMedia.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/matchMedia.addListener.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/enquire.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/cgv.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/app.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/jquery.cycle2.min.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/jquery.cycle2.swipe.min.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/jquery.cycle2.carousel.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/slideshow.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/lib/imagesloaded.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/enterprise/js/scripts.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/minicart.js"></script>
+        <script type="text/javascript" src="https://www.cgv.vn/skin/frontend/cgv/default/js/jquery.colorbox.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/enterprise/js/enterprise/catalogevent.js"></script>
+        <script type="text/javascript"
+        src="https://www.cgv.vn/skin/frontend/cgv/enterprise/js/enterprise/wishlist.js"></script>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/enterprise/css/enterprise.css"
+              media="all" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/default/css/styles.css"
+              media="all" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/default/css/colorbox.css"
+              media="all" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/default/css/madisonisland.css"
+              media="all" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/default/css/g-erp-cgv.css"
+              media="all" />
+        <link rel="stylesheet" type="text/css" href="https://www.cgv.vn/skin/frontend/cgv/default/css/custom-cgv.css"
+              <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <script src='//cdnt.netcoresmartech.com/smartechclient.js'></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-messaging.js"></script>
+        <script src='https://www.cgv.vn/mto.js'></script>
+        <style>
+            body{
+                background-color: #FDFCF0 !important;
+            }
+        </style>
     </head>
     <body>
         <!-- Header-->
-        <div class="container">
-            <jsp:include page="../Header_Footer/header.jsp"></jsp:include>
-                <!-- Section-->
-                <section class="py-5">
-                    <div class="container px-4 px-lg-5 mt-5">
-                        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        <c:forEach items="${films}" var="f">
-                            <div class="col mb-5">
-                                <div class="card h-100">
-                                    <!-- Product image-->
-                                    <img class="card-img-top" src="${f.image}" alt="..." />
-                                    <!-- Product details-->
-                                    <div class="card-body p-4">
-                                        <div class="text-center">
-                                            <!-- Product name-->
-                                            <h5 class="fw-bolder">${f.name}</h5>
-                                        </div>
-                                    </div>
-                                    <!-- Product actions-->
-                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Booking</a></div>
-                                        <!--<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Detail</a></div>-->
-                                    </div>
+        <jsp:include page="../Header_Footer/header.jsp"></jsp:include>
+            <!-- Section-->
+            <div class="main-container col1-layout">
+                <div class="breadcrumbs" itemprop="breadcrumb">
+                    <ul>
+                        <li class="home">
+                            <a href="home" title="Go to Home Page">Home</a>
+                            <span>/ </span>
+                        </li>
+                        <li class="category5">
+                            <strong>Phim Đang Chiếu</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="main-container col1-layout">
+                    <div class="main">            
+                        <div class="col-main">
+                            <div class="page-title category-title">
+                                <h1>Coming Soon</h1>
+                                <div class="sub-category">
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.cgv.vn/default/movies/coming-soon-1.html">Now Showing</a>
+                                        </li>
+                                    </ul>
                                 </div>
+                                <div class="dropdown-sub-category">
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <a href="https://www.cgv.vn/default/movies/coming-soon-1.html">Now Showing</a>
+                                    </div>
+                                </div>		
                             </div>
-                        </c:forEach>
+                            <div class="category-products cgv-movies">
+                                <ul class="products-grid products-grid--max-4-col">
+                                <c:forEach items="${requestScope.films}" var="f">
+                                    <li class="film-lists item last">
+                                        <div class="product-images">
+                                            <a href="detail?id=${f.id}" class="product-image">
+                                                <img id="product-collection-image-2525" src="${f.image}" alt="${f.name}" />
+                                            </a>
+
+                                            <div class="movie-technology">
+                                            </div>
+                                        </div>
+
+                                        <div class="product-info">
+                                            <h2 class="product-name"><a href="https://www.cgv.vn/default/lat-mat-48h.html">${f.name}</a></h2>
+
+                                            <div class="cgv-movie-info">
+                                                <span class="cgv-info-bold">Thể loại: </span>
+                                                <span class="cgv-info-normal">${f.genre}</span>
+                                            </div>
+
+                                            <div class="cgv-movie-info">
+                                                <span class="cgv-info-bold">Thời lượng: </span>
+                                                <span class="cgv-info-normal">${f.length}</span>
+                                            </div>
+
+                                            <div class="cgv-movie-info">
+                                                <span class="cgv-info-bold">Khởi chiếu: </span>
+                                                <span class="cgv-info-normal">${f.premiere}</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <!-- Footer-->
             <jsp:include page="../Header_Footer/footer.jsp"></jsp:include>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
     </body>
 </html>
-
