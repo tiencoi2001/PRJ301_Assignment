@@ -17,7 +17,7 @@ public class User {
     private String email;
     private String pass;
     private Date dob;
-    private Boolean gender;
+    private boolean gender;
     private String address;
     private boolean role;
 
@@ -61,11 +61,11 @@ public class User {
         this.dob = dob;
     }
 
-    public Boolean isGender() {
+    public boolean  isGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 

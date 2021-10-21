@@ -5,7 +5,7 @@
         <servlet-class>Controller.auth.LoginController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>showingController</servlet-name>
+        <servlet-name>ShowingController</servlet-name>
         <servlet-class>Controller.flim.ShowingController</servlet-class>
     </servlet>
     <servlet>
@@ -13,7 +13,7 @@
         <servlet-class>Controller.auth.RegisterController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>comingController</servlet-name>
+        <servlet-name>ComingController</servlet-name>
         <servlet-class>Controller.flim.ComingController</servlet-class>
     </servlet>
     <servlet>
@@ -24,12 +24,28 @@
         <servlet-name>DetailController</servlet-name>
         <servlet-class>Controller.flim.DetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>Controller.auth.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountDetailController</servlet-name>
+        <servlet-class>Controller.user.AccountDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DashbroadController</servlet-name>
+        <servlet-class>Controller.user.DashbroadController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TransactionsHistoryController</servlet-name>
+        <servlet-class>Controller.user.TransactionsHistoryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>showingController</servlet-name>
+        <servlet-name>ShowingController</servlet-name>
         <url-pattern>/showing</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -37,7 +53,7 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>comingController</servlet-name>
+        <servlet-name>ComingController</servlet-name>
         <url-pattern>/coming</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>DetailController</servlet-name>
         <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDetailController</servlet-name>
+        <url-pattern>/accountDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashbroadController</servlet-name>
+        <url-pattern>/dashbroad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TransactionsHistoryController</servlet-name>
+        <url-pattern>/transactionsHistory</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

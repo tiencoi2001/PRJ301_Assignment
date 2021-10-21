@@ -93,9 +93,11 @@
 
                                                         <label for="r-birthday">Date of birth<span>*</span></label>
                                                         <input type="date" name="register_dob" class="input-text required-entry" placeholder="Date of birth">
-                                                        <label for="r-fname" class="gender-title"><span class="sp-gender">Gender</span><span>*</span>
+                                                        
+                                                        <label for="r-fname" class="gender-title" style="margin-left: 20%;">Gender<span>*</span>
                                                             <input type="radio" name="register_gender" id="male-gender" value="Male"> Male
                                                             <input type="radio" name="register_gender" id="female-gender" value="Female"> Female</label>
+                                                            
                                                         <label for="r-city">Address<span>*</span></label>
                                                         <input type="text" name="register_address" class="input-text required-entry" placeholder="Address" autocomplete="off">
                                                     </fieldset>

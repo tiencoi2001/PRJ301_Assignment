@@ -51,7 +51,6 @@ public class UserDBContext extends DBContext {
 //        User u = udbc.getUser("0983563147", "02072001");
 //        System.out.println(u.getName() + " " + u.getEmail() + " " + u.getPass());
 //    }
-
     public void insertUser(User user) {
         try {
             connection.setAutoCommit(false);
@@ -85,6 +84,41 @@ public class UserDBContext extends DBContext {
             }
         }
     }
-    
-    
+
+    public boolean updateUsers(User user) {
+        try {
+            connection.setAutoCommit(false);
+            String sql = "UPDATE [Users]\n"
+                    + "   SET [Name] = ?\n"
+                    + "      ,[Password] = ?\n"
+                    + "      ,[Gender] = ?\n"
+                    + "      ,[Address] = ?\n"
+                    + " WHERE [Phone] = ? AND [Email] = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, user.getName());
+            stm.setString(2, user.getPass());
+            stm.setBoolean(3, user.isGender());
+            stm.setString(4, user.getAddress());
+            stm.setString(5, user.getPhone());
+            stm.setString(6, user.getEmail());
+            stm.executeUpdate();
+            connection.commit();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+
 }

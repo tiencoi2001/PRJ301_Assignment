@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -52,15 +53,17 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String user = request.getParameter("username");
+        String username = request.getParameter("username");
         String pass = request.getParameter("password");
-        UserDBContext db = new UserDBContext();
-        User account = db.getUser(user, pass);
-        if (account == null) {
+        UserDBContext udbc = new UserDBContext();
+        User user = udbc.getUser(username, pass);
+        if (user == null) {
             request.setAttribute("isFail", true);
-            request.setAttribute("account", null);
+            request.setAttribute("user", null);
             request.getRequestDispatcher("View/auth/login.jsp").forward(request, response);
         } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
             response.sendRedirect("home");
         }
     }

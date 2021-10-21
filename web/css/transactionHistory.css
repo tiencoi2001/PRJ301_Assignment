@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2021, 12:08:56 AM
+    Author     : Vu Duc Tien
+*/
+body{
+    background-color: #FDFCF0 !important;
+}
+
+.ptype {
+    background: #7f7f7f;
+    border-radius: 5px;
+}
+.ptype > span {
+    border: 0;
+}
+.button.selected {
+    background: #e71a0f;
+}
+.channel-icon{
+    display:inline-block;
+    vertical-align:bottom;
+}

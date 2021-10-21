@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="header-language-background">
     <div class="header-container">
         <div class="header-language-right">
@@ -16,13 +17,22 @@
                     <a href="#">My Tickets </a>
                 </p>
             </div>
-            <div class="header-top-account">
-                <div class="account-header-wrapper mn-login">
-                    <a href="login" class="topskip-link skip-account">
-                        <span class="label">Account</span>
-                    </a>
+            <c:if test="${sessionScope.user == null}">
+                <div class="header-top-account">
+                    <div class="account-header-wrapper mn-login">
+                        <a href="login" class="topskip-link skip-account">
+                            <span class="label">Account</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${sessionScope.user != null}">
+                <div class="header-top-account">			
+                    <div class="account-header-wrapper mn-login">
+                        <p class="logout-msg"><a href="dashbroad" title="My Account">Welcome, ${sessionScope.user.name}!</a> <a href="logout" title="Log Out">Log Out</a></p>
+                    </div>
+                </div>	
+            </c:if>
         </div>
     </div>
 </div>

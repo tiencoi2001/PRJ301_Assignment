@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2021, 4:10:32 PM
+    Author     : Vu Duc Tien
+*/
+body{
+    background-color: #FDFCF0 !important;
+}
+
+.table-caption{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.barcode-bookingno{
+    margin-bottom:10px;
+}
+.barcode-bookingno img{
+    border:1px solid #000;
+}
+#my-orders-table tr.last td.a-center,
+#my-orders-table tr td.a-center.last,
+#my-orders-table tr.last td.last.a-right,
+#my-orders-table tr th.a-center.last{
+    border-right: 1px solid #b5b5b5;
+}
+#my-orders-table tr.last td.a-center,
+#my-orders-table tr.last td.last.a-right{
+    border-top: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+}
+#my-orders-table tr.grand_total td.last.a-right {
+    border : none;
+}
+@media only screen and (max-width: 770px) {
+    #my-orders-table tr td.a-center{
+        width:100%;
+        text-align:left;
+    }
+    #my-orders-table tr.last td.a-center,
+    #my-orders-table tr td.a-center.last,
+    #my-orders-table tr.last td.last.a-right,
+    #my-orders-table tr th.a-center.last{
+        border-right:0;
+    }
+    #my-orders-table tr.last td.a-center,
+    #my-orders-table tr.last td.last.a-right{
+        border-top: 0;
+        border-bottom: 0;
+    }
+}

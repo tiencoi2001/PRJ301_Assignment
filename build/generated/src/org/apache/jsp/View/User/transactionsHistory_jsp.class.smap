@@ -1,0 +1,16 @@
+SMAP
+transactionsHistory_jsp.java
+JSP
+*S JSP
+*F
++ 0 transactionsHistory.jsp
+View/User/transactionsHistory.jsp
+*L
+5,58:44
+63:102,3
+64,2:105
+66:107,3
+67,128:110
+195:238,3
+196,3:241
+*E

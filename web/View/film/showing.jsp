@@ -72,11 +72,6 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-messaging.js"></script>
         <script src='https://www.cgv.vn/mto.js'></script>
-        <style>
-            body{
-                background-color: #FDFCF0 !important;
-            }
-        </style>
         <link href="${pageContext.request.contextPath}/css/listStyle.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -98,19 +93,12 @@
                 <div class="main-container col1-layout">
                     <div class="main">            
                         <div class="col-main">
-                            <div class="page-title category-title">
-                                <h1>Now Showing</h1>
-                                <div class="sub-category">
-                                    <ul>
-                                        <li>
-                                            <a href="https://www.cgv.vn/default/movies/coming-soon-1.html">Coming Soon</a>
-                                        </li>
-                                    </ul>
+                            <div class="header-title">
+                                <div>
+                                    <h1>Now Showing</h1>
                                 </div>
-                                <div class="dropdown-sub-category">
-                                    <div id="myDropdown" class="dropdown-content">
-                                        <a href="https://www.cgv.vn/default/movies/coming-soon-1.html">Coming Soon</a>
-                                    </div>
+                                <div class="header-title-link">
+                                            <a href="coming">Coming Soon</a>
                                 </div>		
                             </div>
                             <div class="category-products cgv-movies">
@@ -141,7 +129,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="product-info">
+                                            <div class="product-info">
                                             <h2 class="product-name"><a class="card-name" href="detail?id=${f.id}">${f.name}</a></h2>
 
                                             <div class="cgv-movie-info">

@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 19, 2021, 11:51:49 PM
+    Author     : Vu Duc Tien
+*/
+body{
+    background-color: #FDFCF0 !important;
+}
+
+#telephone_otp{
+    height: 30px;
+    margin-right: 2%;
+    width: 50%;
+}
+
+#error-validate{
+    color:#df280a;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+#reloading-mask {
+    background: transparent url(https://www.cgv.vn/skin/adminhtml/default/enterprise/images/blank.gif) repeat scroll 0% 0%;
+    position: fixed;
+    color: #D85909;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.8;
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#reloading-mask .loader {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 200px;
+    margin-left: -105px;
+    padding: 15px 30px;
+    background: #FFF none repeat scroll 0% 0%;
+    border: 2px solid #FFF;
+    color: #D85909;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+}
+@media only screen and (max-width: 768px) {
+    .cgv-option-info select{
+        width: 100%
+    }
+}
+

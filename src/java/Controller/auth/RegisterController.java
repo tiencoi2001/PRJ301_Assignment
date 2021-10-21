@@ -54,16 +54,12 @@ public class RegisterController extends HttpServlet {
         user.setEmail(request.getParameter("register_email"));
         user.setPass(request.getParameter("register_password"));
         user.setDob(Date.valueOf(request.getParameter("register_dob")));
-        if (request.getParameter("register_gender") != null) {
-            user.setGender(request.getParameter("register_gender").equalsIgnoreCase("Male"));
-        } else {
-            user.setGender(null);
-        }
+        user.setGender(request.getParameter("register_gender").equalsIgnoreCase("Male"));
         user.setAddress(request.getParameter("register_address"));
         user.setRole(false);
 
         UserDBContext udbc = new UserDBContext();
-        udbc.insertUser(user);
+        boolean isUpdate = udbc.updateUsers(user);
         response.sendRedirect("login");
     }
 

@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 19, 2021, 3:50:19 PM
+    Author     : Vu Duc Tien
+*/
+body{
+    background-color: #FDFCF0 !important;
+}
+
+.cgv-barcode-img {
+    float: right;
+    display: block;
+}
+.currentmembercard {
+    float: right;
+    width: 234px;
+    text-align: center;
+    font-size: 13px;
+    margin: 0px 0px 10px;
+}
+#btnsubmit{
+	display: none;
+}
+#fileToUpload{
+	cursor: pointer;
+}
+.show-barcode-my-cgv img{
+	display: inline-block;
+}
+.show-barcode-my-cgv, .cgv-cgviancard-number{
+	text-align: center;
+	font-size: 13px;
+}
+form input[type="file"] {
+  display: none;
+}
+

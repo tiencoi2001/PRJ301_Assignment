@@ -39,4 +39,40 @@ public class ChairDBContext extends DBContext {
         }
         return null;
     }
+
+//    private void insertChair(int id, String name) {
+//        try {
+//            connection.setAutoCommit(false);
+//            String sql = "INSERT INTO [Chair] ([RoomID],[ChairName])\n"
+//                    + "     VALUES (?,?)";
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setInt(1, id);
+//            stm.setString(2, name);
+//            stm.executeUpdate();
+//            connection.commit();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ChairDBContext.class.getName()).log(Level.SEVERE, null, ex);
+//            try {
+//                connection.rollback();
+//            } catch (SQLException ex1) {
+//                Logger.getLogger(ChairDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+//            }
+//        } finally {
+//            try {
+//                connection.setAutoCommit(true);
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ChairDBContext.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
+//    
+//    public static void main(String[] args) {
+//        ChairDBContext cdbc = new ChairDBContext();
+//        String str = "ABCDEFGHI";
+//        for (int i = 0; i < str.length(); i++) {
+//            for (int j = 1; j <= 10; j++) {
+//                cdbc.insertChair(3, str.charAt(i) + Integer.toString(j));
+//            }
+//        }
+//    }
 }

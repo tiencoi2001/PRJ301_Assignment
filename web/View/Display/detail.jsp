@@ -214,7 +214,7 @@
                                     <div class="tab-content"><div class="std">
                                             <h2>Trailer</h2>
                                             <div class="std product_view_trailer">
-                                                <iframe width='560' height='315' src='//www.youtube.com/embed/gVI2rTSgeVA?rel=0&showinfo=0' frameborder='0' allowfullscreen></iframe>    </div>
+                                                <iframe width='560' height='315' src='#' frameborder='0' allowfullscreen></iframe>    </div>
                                         </div></div>
                                 </dd>
                             </dl>
