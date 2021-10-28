@@ -77,8 +77,10 @@
                                         <div class="cgvfc form-login-content">
                                             <form class="cgv-login-form" id="cgv-login-form" action="login" method="POST">
                                                 <div id="correct"></div>
-                                            <c:if test="${requestScope.isFail == \"true\"}">
-                                                <p>Incorrect login information</p>
+                                            <c:if test="${requestScope.isFail}">
+                                                <p style="background: #FFF0F0; color: #e71a0f; margin: 0 0 1.5em; padding: 1em 1em;">
+                                                    Incorrect login information
+                                                </p>
                                             </c:if>
                                             <label for="fname">Email or phone number</label>
                                             <input type="text" id="login[username]" name="username"

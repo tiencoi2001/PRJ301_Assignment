@@ -12,10 +12,10 @@ import java.sql.Date;
  * @author Vu Duc Tien
  */
 public class User {
+
     private String name;
     private String phone;
     private String email;
-    private String pass;
     private Date dob;
     private boolean gender;
     private String address;
@@ -45,14 +45,6 @@ public class User {
         this.email = email;
     }
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
     public Date getDob() {
         return dob;
     }
@@ -61,7 +53,7 @@ public class User {
         this.dob = dob;
     }
 
-    public boolean  isGender() {
+    public boolean isGender() {
         return gender;
     }
 
@@ -75,13 +67,5 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public boolean isRole() {
-        return role;
-    }
-
-    public void setRole(boolean role) {
-        this.role = role;
     }
 }

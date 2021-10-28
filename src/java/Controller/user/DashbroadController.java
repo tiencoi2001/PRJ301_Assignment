@@ -31,9 +31,6 @@ public class DashbroadController extends BaseRequiredAuthController {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        request.setAttribute("accountDetail", user);
         request.getRequestDispatcher("View/User/dashbroad.jsp").forward(request, response);
     }
 

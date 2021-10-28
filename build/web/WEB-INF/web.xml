@@ -29,16 +29,36 @@
         <servlet-class>Controller.auth.LogoutController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AccountDetailController</servlet-name>
-        <servlet-class>Controller.user.AccountDetailController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>DashbroadController</servlet-name>
         <servlet-class>Controller.user.DashbroadController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TransactionsHistoryController</servlet-name>
         <servlet-class>Controller.user.TransactionsHistoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountDetailController</servlet-name>
+        <servlet-class>Controller.user.AccountDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetDateController</servlet-name>
+        <servlet-class>Controller.booking.GetDateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetTimeController</servlet-name>
+        <servlet-class>Controller.booking.GetTimeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetChairController</servlet-name>
+        <servlet-class>Controller.booking.GetChairController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentController</servlet-name>
+        <servlet-class>Controller.booking.PaymentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountDetail1Controller</servlet-name>
+        <servlet-class>Controller.user.AccountDetail1Controller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -69,16 +89,36 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AccountDetailController</servlet-name>
-        <url-pattern>/accountDetail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>DashbroadController</servlet-name>
         <url-pattern>/dashbroad</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransactionsHistoryController</servlet-name>
         <url-pattern>/transactionsHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDetailController</servlet-name>
+        <url-pattern>/accountDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetDateController</servlet-name>
+        <url-pattern>/booking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetTimeController</servlet-name>
+        <url-pattern>/booking_nextstep</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetChairController</servlet-name>
+        <url-pattern>/getchair</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentController</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDetail1Controller</servlet-name>
+        <url-pattern>/accountDetail1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

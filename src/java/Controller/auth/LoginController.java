@@ -5,7 +5,9 @@
  */
 package Controller.auth;
 
+import Model.Account;
 import Model.User;
+import dal.AccountDBContext;
 import dal.UserDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -56,13 +58,18 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("username");
         String pass = request.getParameter("password");
         UserDBContext udbc = new UserDBContext();
-        User user = udbc.getUser(username, pass);
-        if (user == null) {
+        AccountDBContext adbc = new AccountDBContext();
+        
+        Account account = adbc.getAccount(username, pass);
+        User user = udbc.getUser(username);
+        if (account == null) {
             request.setAttribute("isFail", true);
+            request.setAttribute("account", null);
             request.setAttribute("user", null);
             request.getRequestDispatcher("View/auth/login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
+            session.setAttribute("account", account);
             session.setAttribute("user", user);
             response.sendRedirect("home");
         }

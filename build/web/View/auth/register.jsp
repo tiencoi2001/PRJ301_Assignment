@@ -80,65 +80,68 @@
                                                 <form class="cgv-signup-form" id="cgv-signup-form" action="register" method="POST">
                                                     <fieldset>
                                                         <label for="r-fname">Name<span>*</span></label>
-                                                        <input type="text" name="register_fullname" class="input-text required-entry" placeholder="Name" autocomplete="off">
+                                                        <input required="required" type="text" name="register_fullname" class="input-text required-entry" placeholder="Name" autocomplete="off">
 
                                                         <label for="r-phone">Phone Number<span>*</span></label>
-                                                        <input type="text" name="register_phone" class="input-text required-entry" placeholder="Phone number" autocomplete="off">
+                                                        <input required="required" type="text" name="register_phone" class="input-text required-entry" placeholder="Phone number" autocomplete="off">
 
                                                         <label for="r-email">Email<span>*</span></label>
-                                                        <input type="text" name="register_email" class="input-text required-entry" placeholder="Email" autocomplete="off">
+                                                        <input required="required" type="text" name="register_email" class="input-text required-entry" placeholder="Email" autocomplete="off">
 
                                                         <label for="r-password">Password<span>*</span></label>
-                                                        <input type="password" name="register_password" class="input-text required-entry" placeholder="Password" autocomplete="new-password">
+                                                        <input required="required" type="password" name="register_password" class="input-text required-entry" placeholder="Password" autocomplete="new-password">
 
                                                         <label for="r-birthday">Date of birth<span>*</span></label>
-                                                        <input type="date" name="register_dob" class="input-text required-entry" placeholder="Date of birth">
-                                                        
+                                                        <input required="required" type="date" name="register_dob" class="input-text required-entry" placeholder="Date of birth">
+
                                                         <label for="r-fname" class="gender-title" style="margin-left: 20%;">Gender<span>*</span>
                                                             <input type="radio" name="register_gender" id="male-gender" value="Male"> Male
                                                             <input type="radio" name="register_gender" id="female-gender" value="Female"> Female</label>
-                                                            
+
                                                         <label for="r-city">Address<span>*</span></label>
-                                                        <input type="text" name="register_address" class="input-text required-entry" placeholder="Address" autocomplete="off">
+                                                        <input required="required" type="text" name="register_address" class="input-text required-entry" placeholder="Address" autocomplete="off">
                                                     </fieldset>
                                                     <input type="submit" id="cgv-btnsignup" value="REGISTER">
-                                                </form>
+                                                <c:if test="${requestScope.isFail == \"true\"}">
+                                                    <p>Phone number and email already exist</p>
+                                                </c:if>
+                                            </form>
+                                        </div>
+                                        <span id="error-validate"></span>
+                                        <div id="correct" style="color:gray;"></div>
+                                        <div id="seconds"></div>
+                                    </div>            
+                                    <div class="l-login">
+                                        <div id="slider-container">
+                                            <div class="mySlides fade">
+                                                <img src="https://www.cgv.vn/media/wysiwyg/2020/3.jpg" />
                                             </div>
-                                            <span id="error-validate"></span>
-                                            <div id="correct" style="color:gray;"></div>
-                                            <div id="seconds"></div>
-                                        </div>            
-                                        <div class="l-login">
-                                            <div id="slider-container">
-                                                <div class="mySlides fade">
-                                                    <img src="https://www.cgv.vn/media/wysiwyg/2020/3.jpg" />
-                                                </div>
-                                                <div class="mySlides fade">
-                                                    <img src="https://www.cgv.vn/media/wysiwyg/2020/1.jpg" />
-                                                </div>
-                                                <div class="mySlides fade">
-                                                    <img src="https://www.cgv.vn/media/wysiwyg/2020/2.jpg" />
-                                                </div>
+                                            <div class="mySlides fade">
+                                                <img src="https://www.cgv.vn/media/wysiwyg/2020/1.jpg" />
                                             </div>
-                                            <!-- The dots/circles -->
-                                            <div class="cgv-dots">
-                                                <span class="dot" onclick="currentSlide(0)"></span>
-                                                <span class="dot" onclick="currentSlide(1)"></span>
-                                                <span class="dot" onclick="currentSlide(2)"></span>
+                                            <div class="mySlides fade">
+                                                <img src="https://www.cgv.vn/media/wysiwyg/2020/2.jpg" />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="banner-login-page">
+                                        <!-- The dots/circles -->
+                                        <div class="cgv-dots">
+                                            <span class="dot" onclick="currentSlide(0)"></span>
+                                            <span class="dot" onclick="currentSlide(1)"></span>
+                                            <span class="dot" onclick="currentSlide(2)"></span>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-2">
+                                    <div class="banner-login-page">
+                                    </div>
+                                </div>
                             </div>
-                            <script type="text/javascript" src="${pageContext.request.contextPath}/js/registerJS.js"></script>
                         </div>
+                        <script type="text/javascript" src="${pageContext.request.contextPath}/js/registerJS.js"></script>
                     </div>
                 </div>
-                <!-- Footer-->
+            </div>
+            <!-- Footer-->
             <jsp:include page="../Header_Footer/footer.jsp"></jsp:include>
         </div>
     </body>

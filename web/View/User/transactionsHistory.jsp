@@ -73,7 +73,7 @@
                             <div class="block-content">
                                 <ul>
                                     <li ><a href="dashbroad">DASHBOARD</a></li>
-                                    <li ><a href="accountDetail">ACCOUTNT DETAILS</a></li>
+                                    <li ><a href="accountDetail">ACCOUNT DETAILS</a></li>
                                     <li ><a href="#">MEMBERSHIP CARD</a></li>
                                     <li ><a href="#">POINT</a></li>
                                     <li ><a href="#">GIFT CARD</a></li>

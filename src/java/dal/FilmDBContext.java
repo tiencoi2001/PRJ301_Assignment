@@ -54,18 +54,18 @@ public class FilmDBContext extends DBContext {
         return films;
     }
 
-    public Film getFilmByID(int id) {
+    public Film getFilmByID(String id) {
         try {
             String sql = "SELECT [ID],[Name],[Director],[StarName],[Genre],"
                     + "[Premiere],[Length],[Language],[Rated],[Note],[Detail],[Showing],[Image]\n"
                     + "FROM [Films]\n"
                     + "WHERE ID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, id);
+            stm.setString(1, id);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Film film = new Film();
-                film.setId(id);
+                film.setId(rs.getInt("ID"));
                 film.setName(rs.getString("Name"));
                 film.setDirector(rs.getString("Director"));
                 film.setStarName(rs.getString("StarName"));

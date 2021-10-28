@@ -17,7 +17,7 @@
                     <a href="#">My Tickets </a>
                 </p>
             </div>
-            <c:if test="${sessionScope.user == null}">
+            <c:if test="${sessionScope.account == null}">
                 <div class="header-top-account">
                     <div class="account-header-wrapper mn-login">
                         <a href="login" class="topskip-link skip-account">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </c:if>
-            <c:if test="${sessionScope.user != null}">
+            <c:if test="${sessionScope.account != null}">
                 <div class="header-top-account">			
                     <div class="account-header-wrapper mn-login">
                         <p class="logout-msg"><a href="dashbroad" title="My Account">Welcome, ${sessionScope.user.name}!</a> <a href="logout" title="Log Out">Log Out</a></p>

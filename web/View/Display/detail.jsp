@@ -196,6 +196,11 @@
                                         </span>
                                     </c:if>
                                 </div>
+                                <a href="booking?id=${requestScope.film.id}">
+                                    <button type="button" title="Booking" class="button btn-booking">
+                                        <span><span>Booking</span></span>
+                                    </button>
+                                </a>
                             </div>
                             <div class="clearer"></div>
                         </div>

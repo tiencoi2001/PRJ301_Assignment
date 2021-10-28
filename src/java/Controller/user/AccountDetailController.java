@@ -9,10 +9,7 @@ import Controller.auth.BaseRequiredAuthController;
 import Model.User;
 import dal.UserDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * @author Vu Duc Tien
  */
 public class AccountDetailController extends BaseRequiredAuthController {
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -35,14 +32,12 @@ public class AccountDetailController extends BaseRequiredAuthController {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Boolean isUpdate;
+        Boolean isFail;
         try {
-            isUpdate = Boolean.parseBoolean(request.getParameter("isUpdate"));
+            isFail = Boolean.parseBoolean(request.getParameter("isFail"));
         } catch (Exception e) {
+            System.out.println(e);
         }
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        request.setAttribute("accountDetail", user);
         request.getRequestDispatcher("View/User/accountDetail.jsp").forward(request, response);
     }
 
@@ -58,16 +53,18 @@ public class AccountDetailController extends BaseRequiredAuthController {
     protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        System.out.println(request.getParameter("name"));
         User user = new User();
         user.setName(request.getParameter("name"));
         user.setPhone(request.getParameter("oldphone"));
         user.setEmail(request.getParameter("oldemail"));
-        user.setPass(request.getParameter("password"));
-        user.setGender(request.getParameter("gender").equalsIgnoreCase("Male"));
+        user.setGender(request.getParameter("gender").equals("Male"));
         user.setAddress(request.getParameter("address"));
-        
+
         UserDBContext udbc = new UserDBContext();
-        udbc.updateUsers(user);
+        if (!udbc.updateUsers(user)) {
+            request.setAttribute("isFail", true);
+        }
         request.getRequestDispatcher("View/User/accountDetail.jsp").forward(request, response);
     }
 

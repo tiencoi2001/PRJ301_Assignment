@@ -98,7 +98,7 @@
                                     <h1>Now Showing</h1>
                                 </div>
                                 <div class="header-title-link">
-                                            <a href="coming">Coming Soon</a>
+                                    <a href="coming">Coming Soon</a>
                                 </div>		
                             </div>
                             <div class="category-products cgv-movies">
@@ -129,7 +129,7 @@
                                             </div>
                                         </div>
 
-                                            <div class="product-info">
+                                        <div class="product-info">
                                             <h2 class="product-name"><a class="card-name" href="detail?id=${f.id}">${f.name}</a></h2>
 
                                             <div class="cgv-movie-info">
@@ -149,7 +149,11 @@
                                         </div>
                                         <ul class="add-to-links">
                                             <li>
-                                                <button type="button" title="Booking" class="button btn-booking"><span><span>Booking</span></span></button>
+                                                <a href="booking/getdate">
+                                                    <button type="button" title="Booking" class="button btn-booking">
+                                                        <span><span>Booking</span></span>
+                                                    </button>
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>

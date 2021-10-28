@@ -72,7 +72,7 @@
                             <div class="block-content">
                                 <ul>
                                     <li class="current"><a href="dashbroad">DASHBOARD</a></li>
-                                    <li ><a href="accountDetail">ACCOUTNT DETAILS</a></li>
+                                    <li ><a href="accountDetail">ACCOUNT DETAILS</a></li>
                                     <li ><a href="#">MEMBERSHIP CARD</a></li>
                                     <li ><a href="#">POINT</a></li>
                                     <li ><a href="#">GIFT CARD</a></li>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="format-profile-cgv">
                                     <div class="welcome-msg">
-                                        <p class="hello"><strong>Hi ${requestScope.accountDetail.name},</strong></p>
+                                        <p class="hello"><strong>Hi ${sessionScope.user.name},</strong></p>
                                         <p>From this dashboard, you can have an overview of your account and update any information easily.</p>
                                         <div class="box-account box-info">
                                             <div class="box-head">
@@ -103,9 +103,9 @@
                                                     <a href="accountDetail">Edit</a>
                                                 </div>
                                                 <div class="box-content box-content-my-cgv col2-set">
-                                                    <span>Name : ${requestScope.accountDetail.name}</span>
-                                                    <span>Email : ${requestScope.accountDetail.email}</span>
-                                                    <span>Telephone : ${requestScope.accountDetail.phone}</span>
+                                                    <span>Name : ${sessionScope.user.name}</span>
+                                                    <span>Email : ${sessionScope.user.email}</span>
+                                                    <span>Telephone : ${sessionScope.user.phone}</span>
                                                 </div>
                                             </div>
                                         </div>

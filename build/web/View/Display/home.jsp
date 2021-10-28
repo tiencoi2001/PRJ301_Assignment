@@ -208,7 +208,11 @@
                                         <div class="feature_film_content">
                                             <h3>${f.name}</h3>
                                             <a title="Details" class="button" href="detail?id=${f.id}">Details</a>
-                                            <button type="button" title="Booking" class="button btn-booking"><span><span>Booking</span></span></button>
+                                            <a href="booking?id=${f.id}">
+                                                <button type="button" title="Booking" class="button btn-booking">
+                                                    <span><span>Booking</span></span>
+                                                </button>
+                                            </a>
                                         </div>
                                     </li>
                                 </c:forEach>

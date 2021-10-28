@@ -31,7 +31,7 @@ public class DetailController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         
         FilmDBContext fdbc = new FilmDBContext();
         Film film = fdbc.getFilmByID(id);

@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class BaseRequiredAuthController extends HttpServlet {
 
     private boolean isAuthenticated(HttpServletRequest request) {
-//        return request.getSession().getAttribute("user") != null;
-        return true;
+        return request.getSession().getAttribute("user") != null;
+//        return true;
     }
 
     protected abstract void processGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,9 +43,9 @@ public abstract class BaseRequiredAuthController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (isAuthenticated(request)) {
-            processPost(request, response);
+            processGet(request, response);
         } else {
-            response.getWriter().println("access denied!");
+            response.sendRedirect("login");
         }
     }
 
@@ -61,9 +61,9 @@ public abstract class BaseRequiredAuthController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (isAuthenticated(request)) {
-            processGet(request, response);
+            processPost(request, response);
         } else {
-            response.getWriter().println("access denied!");
+            response.sendRedirect("login");
         }
     }
 

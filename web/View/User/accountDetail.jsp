@@ -60,7 +60,7 @@
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-messaging.js"></script>
         <script src='https://www.cgv.vn/mto.js'></script>
-        
+
         <link href="${pageContext.request.contextPath}/css/accountDetailStyle.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -74,7 +74,7 @@
                             <div class="block-content">
                                 <ul>
                                     <li ><a href="dashbroad">DASHBOARD</a></li>
-                                    <li class="current"><a href="accountDetail">ACCOUTNT DETAILS</a></li>
+                                    <li class="current"><a href="accountDetail">ACCOUNT DETAILS</a></li>
                                     <li ><a href="#">MEMBERSHIP CARD</a></li>
                                     <li ><a href="#">POINT</a></li>
                                     <li ><a href="#">GIFT CARD</a></li>
@@ -89,71 +89,74 @@
                         <div class="my-account"><div class="page-title">
                                 <h1>Edit Account Detail</h1>
                             </div>
-                            <form action="accountDetail" method="POST" autocomplete="off" id="form-validate" class="scaffold-form cgv-edit-account" enctype="multipart/form-data">
+                            <form action="accountDetail" method="get" id="form-validate" class="scaffold-form cgv-edit-account" enctype="multipart/form-data">
                                 <div class="fieldset edit-account-my-cgv">
-                                    <input type="hidden" name="oldphone" id="oldphone" value="${requestScope.accountDetail.phone}" />
-                                <input type="hidden" name="oldemail" id="oldemail" value="${requestScope.accountDetail.email}" />
-                                    <ul class="form-list edit-info-cgv-left">
-                                        <li class="fields">
-                                            <div class="customer-name">
-                                                <label for="fullname" class="required"><em>*</em>Name</label>
-                                                <div class="input-box">
-                                                    <input type="text" id="fullname" name="name" value="${requestScope.accountDetail.name}" title="" placeholder="" maxlength="255" class="input-text required-entry"  />
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="fields phone_user">
-                                            <label for="telephone" class="required"><em>*</em>Telephone</label>
+                                    <input type="hidden" name="oldphone" id="oldphone" value="${sessionScope.user.phone}" />
+                                <input type="hidden" name="oldemail" id="oldemail" value="${sessionScope.user.email}" />
+                                <ul class="form-list edit-info-cgv-left">
+                                    <li class="fields">
+                                        <div class="customer-name">
+                                            <label for="fullname" class="required"><em>*</em>Name</label>
                                             <div class="input-box">
-                                                <input type="tel" autocapitalize="off" autocorrect="off" name="phone" id="telephone" value="${requestScope.accountDetail.phone}" title="Phone Number" class="input-text validate-mobile required-entry" />
+                                                <input type="text" required="required" id="fullname" name="name" value="${sessionScope.user.name}" title="" placeholder="" maxlength="50" class="input-text required-entry"  />
                                             </div>
-                                        </li>
-                                        <li >
-                                            <label for="gender" class="required"><em>*</em>Gender</label>
-                                            <div class="input-box">
-                                                <input type="radio" name="gender" value="Male" ${requestScope.accountDetail.gender ? "checked=\"checked\"":""}>Male
-                                                <input type="radio" name="gender" value="Female" ${!requestScope.accountDetail.gender ? "checked=\"checked\"":""}>Female
-                                            </div>
-                                        </li>
-                                        <li>					<label for="month">Date of Birth</label>
-                                            <div class="input-box customer-dob">${requestScope.accountDetail.dob}</div>
-                                        </li>
-                                        <li>
-                                            <label for="email" class="required"><em>*</em>Email Address</label>
-                                            <div class="input-box">${requestScope.accountDetail.email}</div>
-                                        </li>
-                                    </ul>						
-                                    <ul class="form-list edit-info-cgv-right">
-                                        <li class="wide">
-                                            <label for="street_1" class="required"><em>*</em>Address</label>
-                                            <div class="input-box">
-                                                <input type="text" name="address" value="${requestScope.accountDetail.address}" title="Address" id="street_1" class="input-text  required-entry" />
-                                            </div>
-                                        </li>			
-                                        <li>
-                                            <label for="current_password" class="required"><em>*</em>Password</label>
-                                            <div class="input-box">
-                                                <input type="text" class="input-text no-display" name="dummy" id="dummy" />
-                                                <input type="password" title="Current Password" class="input-text required-entry" name="password" id="current_password" />
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                    <li class="fields phone_user">
+                                        <label for="telephone" class="required"><em>*</em>Telephone</label>
+                                        <div class="input-box">
+                                            <input type="tel" required="required" autocapitalize="off" autocorrect="off" name="phone" id="telephone" value="${sessionScope.user.phone}" title="Phone Number" class="input-text validate-mobile required-entry" />
+                                        </div>
+                                    </li>
+                                    <li >
+                                        <label for="gender" class="required"><em>*</em>Gender</label>
+                                        <div class="input-box">
+                                            <input type="radio" name="gender" value="Male" ${sessionScope.user.gender ? "checked=\"checked\"":""}>Male
+                                            <input type="radio" name="gender" value="Female" ${!sessionScope.user.gender ? "checked=\"checked\"":""}>Female
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <label for="month">Date of Birth</label>
+                                        <div class="input-box customer-dob">${sessionScope.user.dob}</div>
+                                    </li>
+                                    <li>
+                                        <label for="email" class="required"><em>*</em>Email Address</label>
+                                        <div class="input-box">${sessionScope.user.email}</div>
+                                    </li>
+                                </ul>						
+                                <ul class="form-list edit-info-cgv-right">
+                                    <li class="wide">
+                                        <label for="street_1" class="required"><em>*</em>Address</label>
+                                        <div class="input-box">
+                                            <input type="text" required="required" name="address" value="${sessionScope.user.address}" title="Address" id="street_1" class="input-text  required-entry" />
+                                        </div>
+                                    </li>			
+                                    <li>
+                                        <label for="current_password" class="required"><em>*</em>Password</label>
+                                        <div class="input-box">
+                                            <input type="password" required="required" title="Current Password" class="input-text required-entry" name="password" id="current_password" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cgv-option-info">
+                                <h3></h3>		
+                            </div>
+                            <div class="my-cgv-withdraw-save">
+                                <div class="buttons-set cgv-edit-btn">
+                                    <button type="submit" title="Save" class="button"><span><span>Save</span></span></button>
                                 </div>
-                                <div class="cgv-option-info">
-                                    <h3>Optional Information</h3>		
-                                </div>
-                                <div class="my-cgv-withdraw-save">
-                                    <div class="buttons-set cgv-edit-btn">
-                                        <button type="submit" title="Save" class="button"><span><span>Save</span></span></button>
-                                    </div>
-                                </div>
-                                <p class="required">* Required field</p>
-                                <span id="error-validate"></span>
-                            </form>
-                        </div>
+                                <c:if test="${requestScope.isFail}">
+                                    <p>Can't update</p>
+                                </c:if>
+                            </div>
+                            <p class="required">* Required field</p>
+                            <span id="error-validate"></span>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
         <jsp:include page="../Header_Footer/footer.jsp"></jsp:include>
     </body>
 </html>
