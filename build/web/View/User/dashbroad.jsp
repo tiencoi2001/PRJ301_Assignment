@@ -4,6 +4,8 @@
     Author     : Vu Duc Tien
 --%>
 
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -91,22 +93,24 @@
                                 </div>
                                 <div class="format-profile-cgv">
                                     <div class="welcome-msg">
-                                        <p class="hello"><strong>Hi ${sessionScope.user.name},</strong></p>
-                                        <p>From this dashboard, you can have an overview of your account and update any information easily.</p>
-                                        <div class="box-account box-info">
-                                            <div class="box-head">
-                                                <h2>Account Information</h2>
+                                        <c:if test="${requestScope.isFail}">
+                                        <p>Can't update</p>
+                                    </c:if>
+                                    <p class="hello"><strong>Hi ${sessionScope.user.name},</strong></p>
+                                    <p>From this dashboard, you can have an overview of your account and update any information easily.</p>
+                                    <div class="box-account box-info">
+                                        <div class="box-head">
+                                            <h2>Account Information</h2>
+                                        </div>
+                                        <div class="box">
+                                            <div class="box-title">
+                                                <h3 class="title-my-cgv">CONTACT INFORMATION</h3>
+                                                <a href="accountDetail">Edit</a>
                                             </div>
-                                            <div class="box">
-                                                <div class="box-title">
-                                                    <h3 class="title-my-cgv">CONTACT INFORMATION</h3>
-                                                    <a href="accountDetail">Edit</a>
-                                                </div>
-                                                <div class="box-content box-content-my-cgv col2-set">
-                                                    <span>Name : ${sessionScope.user.name}</span>
-                                                    <span>Email : ${sessionScope.user.email}</span>
-                                                    <span>Telephone : ${sessionScope.user.phone}</span>
-                                                </div>
+                                            <div class="box-content box-content-my-cgv col2-set">
+                                                <span>Name : ${sessionScope.user.name}</span>
+                                                <span>Email : ${sessionScope.user.email}</span>
+                                                <span>Telephone : ${sessionScope.user.phone}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -116,6 +120,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         <jsp:include page="../Header_Footer/footer.jsp"></jsp:include>
     </body>
 </html>

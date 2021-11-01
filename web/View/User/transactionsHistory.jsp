@@ -4,6 +4,7 @@
     Author     : Vu Duc Tien
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -89,98 +90,49 @@
                                 <h1>Transactions history</h1>
                             </div>
                             <ul class="list-my-order" id="list-my-order">
+                            <c:forEach items="${requestScope.tickets}" var="tk">
                                 <li class="list-my-order-detail">
                                     <div class="col2-set">
                                         <p class="status-order">
-                                            <label>Booking Number : 696302230</label>
+                                            <label>Booking Number : ${tk.ticketID}</label>
                                             <em>(Status : Complete)</em>				
                                             <em><img class="channel-icon" src="https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/homepage_red.png" /></em>
                                         </p>
 
                                         <div class="col-1">
-                                            <img src="https://www.cgv.vn/media/catalog/product/cache/3/thumbnail/160x237/2e2b8cd282892c71872b9e67d2cb5039/t/a/tazza-oneeyedjack__main_poster_1__2.jpg" alt="TAZZA: ONE EYED JACK" />
+                                            <img src="${tk.img}" alt="${tk.filmName}" />
                                         </div>
 
                                         <div class="col-2">
-                                            <p>TAZZA: ONE EYED JACK</p>
-                                            <span class="icon-rating-movie icon-C18">C18</span>
-                                            <p>12/02/2021</p>
-                                            <p>From 20:00 PM ~ To 22:32 PM</p>
+                                            <p>${tk.filmName}</p>
+                                            <span class="icon-rating-movie
+                                                  <c:if test="${f.note eq \"C18\"}">
+                                                      icon-C18
+                                                  </c:if>
+                                                  <c:if test="${f.note eq \"C16\"}">
+                                                      icon-C16
+                                                  </c:if>
+                                                  <c:if test="${f.note eq \"C13\"}">
+                                                      icon-C13
+                                                  </c:if>
+                                                  <c:if test="${f.note eq \"P\"}">
+                                                      icon-P
+                                                  </c:if>
+                                                  ">${f.note}</span>
+                                            <p>${tk.date}</p>
+                                            <p>Time: ${tk.slot}</p>
                                             <p>CGV Vincom Thai Nguyen</p>
-                                            <p>
-                                                Cinema 1						(K7, K6, K5, K4)					</p>
+                                            <p>${tk.roomName}( ${tk.chairName})</p>
                                             <p><strong>₫332,000.00</strong></p>
-                                            <div class="area-view-order">
-                                                <button class="view-order" onclick="window.location.href = 'https://www.cgv.vn/en/sales/order/view/order_id/56656238/'">
-                                                    <span><span>View</span></span>
-                                                </button>
-                                            </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-my-order-detail">
-                                    <div class="col2-set">
-                                        <p class="status-order">
-                                            <label>Booking Number : 667455864</label>
-                                            <em>(Status : Complete)</em>				
-                                            <em><img class="channel-icon" src="https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/homepage_red.png" /></em>
-                                        </p>
-
-                                        <div class="col-1">
-                                            <img src="https://www.cgv.vn/media/catalog/product/cache/3/thumbnail/160x237/2e2b8cd282892c71872b9e67d2cb5039/r/s/rsz_em_l__c_a_em-official_poster-_kc_08012021_2.jpg" alt="‘EM’ LÀ CỦA EM " />
-                                        </div>
-
-                                        <div class="col-2">
-                                            <p>‘EM’ LÀ CỦA EM </p>
-                                            <span class="icon-rating-movie icon-C16">C16</span>
-                                            <p>17/01/2021</p>
-                                            <p>From 13:15 PM ~ To 15:16 PM</p>
-                                            <p>CGV Aeon Long Bien</p>
-                                            <p>
-                                                Cinema 2						(F7, F6)					</p>
-                                            <p><strong>₫240,000.00</strong></p>
-                                            <div class="area-view-order">
-                                                <button class="view-order" onclick="window.location.href = 'https://www.cgv.vn/en/sales/order/view/order_id/56277713/'">
-                                                    <span><span>View</span></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-my-order-detail">
-                                    <div class="col2-set">
-                                        <p class="status-order">
-                                            <label>Booking Number : 514184788</label>
-                                            <em>(Status : Complete)</em>				
-                                            <em><img class="channel-icon" src="https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/homepage_red.png" /></em>
-                                        </p>
-
-                                        <div class="col-1">
-                                            <img src="https://www.cgv.vn/media/catalog/product/cache/3/thumbnail/160x237/2e2b8cd282892c71872b9e67d2cb5039/t/t/ttm_main-poster_2__2.jpg" alt="TIEC TRANG MAU" />
-                                        </div>
-
-                                        <div class="col-2">
-                                            <p>TIEC TRANG MAU</p>
-                                            <span class="icon-rating-movie icon-C18">C18</span>
-                                            <p>07/12/2020</p>
-                                            <p>From 19:50 PM ~ To 22:06 PM</p>
-                                            <p>CGV Vincom D Capitale</p>
-                                            <p>
-                                                Cinema 5						(D3, D4)					</p>
-                                            <p><strong>₫90,000.00</strong></p>
-                                            <div class="area-view-order">
-                                                <button class="view-order" onclick="window.location.href = 'https://www.cgv.vn/en/sales/order/view/order_id/54308083/'">
-                                                    <span><span>View</span></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                            </c:forEach>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
         <jsp:include page="../Header_Footer/footer.jsp"></jsp:include>
     </body>
 </html>

@@ -6,6 +6,7 @@
 package dal;
 
 import Model.User;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,15 +43,8 @@ public class UserDBContext extends DBContext {
         }
         return null;
     }
-    
-    public static void main(String[] args) {
-        UserDBContext udbc = new UserDBContext();
-        User u = udbc.getUser("0983563147");
-        System.out.println(u.getName() + " " + u.getEmail() + " "+ u.getPhone());
-    }
-    
+
     public boolean insertUser(User user) {
-        boolean check = false;
         try {
             connection.setAutoCommit(false);
             String sql = "INSERT INTO [Users]\n"
@@ -64,7 +58,7 @@ public class UserDBContext extends DBContext {
             stm.setDate(4, user.getDob());
             stm.setBoolean(5, user.isGender());
             stm.setString(6, user.getAddress());
-            check = stm.execute();
+            stm.execute();
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,11 +76,10 @@ public class UserDBContext extends DBContext {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return check;
+        return true;
     }
 
-    public boolean updateUsers(User user) {
-        boolean check = false;
+    public void updateUser(User user) {
         try {
             connection.setAutoCommit(false);
             String sql = "UPDATE [Users]\n"
@@ -100,16 +93,14 @@ public class UserDBContext extends DBContext {
             stm.setString(3, user.getAddress());
             stm.setString(4, user.getPhone());
             stm.setString(5, user.getEmail());
-            check = stm.execute();
+            stm.executeUpdate();
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             try {
                 connection.rollback();
-                return false;
             } catch (SQLException ex1) {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex1);
-                return false;
             }
         } finally {
             try {
@@ -118,7 +109,22 @@ public class UserDBContext extends DBContext {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return check;
     }
 
+    public static void main(String[] args) {
+        UserDBContext udbc = new UserDBContext();
+//        User u = udbc.getUser("0983563147");
+//        System.out.println(u.getName() + " " + u.getEmail() + " "+ u.getPhone());
+        User u = new User();
+        u.setPhone("0983563147");
+        u.setEmail("tienvdhe153313@fpt.edu.vn");
+        u.setName("Vũ Đức Tiến");
+        u.setGender(true);
+        u.setAddress("Hà Nội");
+        udbc.updateUser(u);
+        
+        
+        System.out.println();
+
+    }
 }

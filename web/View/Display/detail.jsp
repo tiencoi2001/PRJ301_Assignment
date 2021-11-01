@@ -196,11 +196,12 @@
                                         </span>
                                     </c:if>
                                 </div>
-                                <a href="booking?id=${requestScope.film.id}">
-                                    <button type="button" title="Booking" class="button btn-booking">
+                                <form action="booking" method="POST">
+                                    <input type="hidden" name="id" value="${requestScope.film.id}"/>
+                                    <button type="submit" title="Booking" class="button btn-booking">
                                         <span><span>Booking</span></span>
                                     </button>
-                                </a>
+                                </form>
                             </div>
                             <div class="clearer"></div>
                         </div>

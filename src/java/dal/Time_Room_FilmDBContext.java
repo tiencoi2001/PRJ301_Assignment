@@ -23,7 +23,7 @@ public class Time_Room_FilmDBContext extends DBContext {
 
     public Time_Room_Film getTime_Room_Film(String filmID, String date, String slot) {
         try {
-            String sql = "SELECT [Slot], r.[Name] AS roomName, f.[Name] AS filmName, [Date]\n"
+            String sql = "SELECT t.[TimeID], [Slot], r.[RoomID] ,r.[Name] AS roomName, f.[ID] AS filmID, f.[Name] AS filmName, [Date]\n"
                     + "  FROM [Time_Room_Film] trf\n"
                     + "  INNER JOIN Times t ON t.TimeID = trf.TimeID\n"
                     + "  INNER JOIN Rooms r ON r.RoomID = trf.RoomID\n"
@@ -36,8 +36,11 @@ public class Time_Room_FilmDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 Time_Room_Film trf = new Time_Room_Film();
+                trf.setTimeID(rs.getInt("TimeID"));
                 trf.setSlot(rs.getString("Slot"));
+                trf.setRoomID(rs.getInt("RoomID"));
                 trf.setRoomName(rs.getString("roomName"));
+                trf.setFilmID(rs.getInt("filmID"));
                 trf.setFilmName(rs.getString("filmName"));
                 trf.setDate(rs.getDate("date"));
                 return trf;
@@ -123,9 +126,11 @@ public class Time_Room_FilmDBContext extends DBContext {
 //        for (String s : slots) {
 //            System.out.println(s);
 //        }
-//        Time_Room_Film trf = trfdbc.getTime_Room_Film("1", "2021-12-13", "7h30 - 9h30");
-//        System.out.println(trf.getSlot() + " " + trf.getRoomName() + " " + trf.getFilmName() + " " + trf.getDate());
-        String roomID = trfdbc.getRoomID("1", "2021-12-13", "7h30 - 9h30");
-        System.out.println(roomID);
+        Time_Room_Film trf = trfdbc.getTime_Room_Film("1", "2021-12-13", "7h30 - 9h30");
+        System.out.println(trf.getTimeID() + " " + trf.getSlot() + " "
+                + trf.getRoomID() + " " + trf.getRoomName() + " "
+                + trf.getFilmID() + " " + trf.getFilmName() + " " + trf.getDate());
+//        String roomID = trfdbc.getRoomID("1", "2021-12-13", "7h30 - 9h30");
+//        System.out.println(roomID);
     }
 }

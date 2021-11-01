@@ -5,15 +5,14 @@
  */
 package Controller.booking;
 
+import Controller.auth.BaseRequiredAuthController;
 import Model.Film;
 import dal.FilmDBContext;
 import dal.Time_Room_FilmDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Vu Duc Tien
  */
-public class GetDateController extends HttpServlet {
+public class GetDateController extends BaseRequiredAuthController {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,19 +32,8 @@ public class GetDateController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        
-        Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
-        ArrayList<Date> dates = trfdbc.getDate(id);
-        
-        FilmDBContext fdbc = new FilmDBContext();
-        Film film = fdbc.getFilmByID(id);
-        
-        request.setAttribute("film", film);        
-        request.setAttribute("dates", dates);
-        request.getRequestDispatcher("View/Booking/getDate.jsp").forward(request, response);
     }
 
     /**
@@ -57,21 +45,19 @@ public class GetDateController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        String date = request.getParameter("selectDate");
-        
+
         Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
-        ArrayList<String> slots = trfdbc.getTime(id, date);
-        
+        ArrayList<Date> dates = trfdbc.getDate(id);
+
         FilmDBContext fdbc = new FilmDBContext();
         Film film = fdbc.getFilmByID(id);
-        
+
         request.setAttribute("film", film);
-        request.setAttribute("selectedDate", date);
-        request.setAttribute("slots", slots);
-        request.getRequestDispatcher("View/Booking/getTime.jsp").forward(request, response);
+        request.setAttribute("dates", dates);
+        request.getRequestDispatcher("View/Booking/getDate.jsp").forward(request, response);
     }
 
     /**

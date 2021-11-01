@@ -6,11 +6,12 @@
 package Controller.user;
 
 import Controller.auth.BaseRequiredAuthController;
+import Model.Ticket;
 import Model.User;
+import dal.TicketDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,7 +35,11 @@ public class TransactionsHistoryController extends BaseRequiredAuthController {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        request.setAttribute("accountDetail", user);
+
+        TicketDBContext tkdbc = new TicketDBContext();
+        ArrayList<Ticket> tickets = tkdbc.getTicket(user.getPhone(), user.getEmail());
+        
+        request.setAttribute("tickets", tickets);
         request.getRequestDispatcher("View/User/transactionsHistory.jsp").forward(request, response);
     }
 

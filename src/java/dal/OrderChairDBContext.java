@@ -10,5 +10,7 @@ package dal;
  * @author Vu Duc Tien
  */
 public class OrderChairDBContext {
-    
+    public void insertOrderChair(){
+        
+    }
 }

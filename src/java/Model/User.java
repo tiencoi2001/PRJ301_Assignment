@@ -19,7 +19,6 @@ public class User {
     private Date dob;
     private boolean gender;
     private String address;
-    private boolean role;
 
     public String getName() {
         return name;

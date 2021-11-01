@@ -12,10 +12,21 @@ import java.sql.Date;
  * @author Vu Duc Tien
  */
 public class Time_Room_Film {
+    private int timeID;
     private String slot;
+    private int roomID;
     private String roomName;
+    private int filmID;
     private String filmName;
-    private Date date;   
+    private Date date;
+
+    public int getTimeID() {
+        return timeID;
+    }
+
+    public void setTimeID(int timeID) {
+        this.timeID = timeID;
+    }
 
     public String getSlot() {
         return slot;
@@ -25,12 +36,28 @@ public class Time_Room_Film {
         this.slot = slot;
     }
 
+    public int getRoomID() {
+        return roomID;
+    }
+
+    public void setRoomID(int roomID) {
+        this.roomID = roomID;
+    }
+
     public String getRoomName() {
         return roomName;
     }
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public int getFilmID() {
+        return filmID;
+    }
+
+    public void setFilmID(int filmID) {
+        this.filmID = filmID;
     }
 
     public String getFilmName() {

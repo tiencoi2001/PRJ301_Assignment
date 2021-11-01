@@ -227,18 +227,6 @@
                                             <div class="seat seat-vipprime active">I10</div>
                                         </div>	
                                     </div>
-
-                                    <div class="ticketbox-notice">
-                                        <div class="iconlist">
-                                            <div class="icon checked">Checked</div>
-                                            <div class="icon occupied">Occupied</div>
-                                            <div class="icon unavailable">Unavailable</div>
-                                        </div>
-
-                                        <div class="iconlist">
-                                            <div class="icon zone-vipprime" title="VIP(Prime)">VIP(Prime)</div>
-                                        </div>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -301,12 +289,18 @@
 
                                     <li class="item" xmlns="http://www.w3.org/1999/html">
                                         <div class="product-details">
-                                            <form>
+                                            <form action="payment" method="POST">
+                                                <input type="hidden" name="finalFilmID" value="${requestScope.id}"/>
+                                                <input type="hidden" name="finalDate" value="${requestScope.date}"/>
+                                                <input type="hidden" name="finalSlot" value="${requestScope.slot}"/>
                                                 <label>Select chair:</label><select name="chairSelected">
                                                     <c:forEach items="${requestScope.chairs}" var="chair">
-                                                    <option value="${chair.chairID}">${chair.name}</option>
+                                                        <option value="${chair.chairID}">${chair.name}</option>
                                                     </c:forEach>
                                                 </select>
+                                                <button type="submit" title="Book" class="button btn-booking">
+                                                    <span><span>Book</span></span>
+                                                </button>
                                             </form>
                                         </div>
                                     </li>

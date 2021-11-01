@@ -61,7 +61,6 @@ public class AccountDBContext extends DBContext {
     }
 
     public boolean insertUser(Account account) {
-        boolean check = false;
         try {
             connection.setAutoCommit(false);
             String sql = "INSERT INTO [Accounts]\n"
@@ -72,7 +71,7 @@ public class AccountDBContext extends DBContext {
             stm.setString(2, account.getEmail());
             stm.setString(3, account.getPass());
             stm.setBoolean(4, account.isRole());
-            check = stm.execute();
+            stm.execute();
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
@@ -90,6 +89,34 @@ public class AccountDBContext extends DBContext {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return check;
+        return true;
+    }
+
+    public void updateAccount(Account account) {
+        try {
+            connection.setAutoCommit(false);
+            String sql = "UPDATE[Accounts]\n"
+                    + "   SET [Password] = ?\n"
+                    + " WHERE [Phone] = ? AND [Email] = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, account.getPass());
+            stm.setString(2, account.getPhone());
+            stm.setString(3, account.getEmail());
+            stm.execute();
+            connection.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

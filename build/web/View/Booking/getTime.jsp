@@ -180,7 +180,7 @@
                                     </c:if>
                                 </div>
                                 <div>
-                                    <form action="booking_nextstep">
+                                    <form action="booking_laststep" method="POST">
                                         Select time:<select name="slot">
                                             <c:forEach items="${requestScope.slots}" var="s">
                                                 <option>${s}</option>
@@ -188,7 +188,7 @@
                                         </select><br>
                                         <input type="hidden" name="date" value="${requestScope.selectedDate}">
                                         <input type="hidden" name="id" value="${requestScope.film.id}"/>
-                                        <button type="submit" title="Booking" class="button btn-booking">
+                                        <button type="submit" title="Next" class="button btn-booking">
                                             <span><span>Next</span></span>
                                         </button>
                                     </form>

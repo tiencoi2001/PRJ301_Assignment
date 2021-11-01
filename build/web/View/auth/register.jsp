@@ -86,7 +86,7 @@
                                                         <input required="required" type="text" name="register_phone" class="input-text required-entry" placeholder="Phone number" autocomplete="off">
 
                                                         <label for="r-email">Email<span>*</span></label>
-                                                        <input required="required" type="text" name="register_email" class="input-text required-entry" placeholder="Email" autocomplete="off">
+                                                        <input required="required" type="email" name="register_email" class="input-text required-entry" placeholder="Email" autocomplete="off">
 
                                                         <label for="r-password">Password<span>*</span></label>
                                                         <input required="required" type="password" name="register_password" class="input-text required-entry" placeholder="Password" autocomplete="new-password">

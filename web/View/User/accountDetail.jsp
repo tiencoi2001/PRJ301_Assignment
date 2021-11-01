@@ -4,7 +4,8 @@
     Author     : Vu Duc Tien
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -89,23 +90,18 @@
                         <div class="my-account"><div class="page-title">
                                 <h1>Edit Account Detail</h1>
                             </div>
-                            <form action="accountDetail" method="get" id="form-validate" class="scaffold-form cgv-edit-account" enctype="multipart/form-data">
+                            <form action="accountDetail" method="POST">
                                 <div class="fieldset edit-account-my-cgv">
-                                    <input type="hidden" name="oldphone" id="oldphone" value="${sessionScope.user.phone}" />
-                                <input type="hidden" name="oldemail" id="oldemail" value="${sessionScope.user.email}" />
+                                    <input type="hidden" name="phone" value="${sessionScope.user.phone}" />
+                                <input type="hidden" name="email" value="${sessionScope.user.email}" />
+                                <input type="hidden" name="dob" value="${sessionScope.user.dob}"/>
                                 <ul class="form-list edit-info-cgv-left">
                                     <li class="fields">
                                         <div class="customer-name">
                                             <label for="fullname" class="required"><em>*</em>Name</label>
                                             <div class="input-box">
-                                                <input type="text" required="required" id="fullname" name="name" value="${sessionScope.user.name}" title="" placeholder="" maxlength="50" class="input-text required-entry"  />
+                                                <input type="text" required="required" id="fullname" name="name" value="${sessionScope.user.name}" title="" placeholder="" maxlength="50"/>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="fields phone_user">
-                                        <label for="telephone" class="required"><em>*</em>Telephone</label>
-                                        <div class="input-box">
-                                            <input type="tel" required="required" autocapitalize="off" autocorrect="off" name="phone" id="telephone" value="${sessionScope.user.phone}" title="Phone Number" class="input-text validate-mobile required-entry" />
                                         </div>
                                     </li>
                                     <li >
@@ -126,15 +122,15 @@
                                 </ul>						
                                 <ul class="form-list edit-info-cgv-right">
                                     <li class="wide">
-                                        <label for="street_1" class="required"><em>*</em>Address</label>
+                                        <label class="required"><em>*</em>Address</label>
                                         <div class="input-box">
-                                            <input type="text" required="required" name="address" value="${sessionScope.user.address}" title="Address" id="street_1" class="input-text  required-entry" />
+                                            <input type="text" required="required" name="address" value="${sessionScope.user.address}" title="Address"/>
                                         </div>
                                     </li>			
                                     <li>
-                                        <label for="current_password" class="required"><em>*</em>Password</label>
+                                        <label class="required"><em>*</em>Password</label>
                                         <div class="input-box">
-                                            <input type="password" required="required" title="Current Password" class="input-text required-entry" name="password" id="current_password" />
+                                            <input type="password" required="required" title="Password" name="password"/>
                                         </div>
                                     </li>
                                 </ul>
@@ -146,9 +142,6 @@
                                 <div class="buttons-set cgv-edit-btn">
                                     <button type="submit" title="Save" class="button"><span><span>Save</span></span></button>
                                 </div>
-                                <c:if test="${requestScope.isFail}">
-                                    <p>Can't update</p>
-                                </c:if>
                             </div>
                             <p class="required">* Required field</p>
                             <span id="error-validate"></span>

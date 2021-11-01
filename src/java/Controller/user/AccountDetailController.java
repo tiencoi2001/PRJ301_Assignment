@@ -6,9 +6,12 @@
 package Controller.user;
 
 import Controller.auth.BaseRequiredAuthController;
+import Model.Account;
 import Model.User;
+import dal.AccountDBContext;
 import dal.UserDBContext;
 import java.io.IOException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,12 +35,6 @@ public class AccountDetailController extends BaseRequiredAuthController {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Boolean isFail;
-        try {
-            isFail = Boolean.parseBoolean(request.getParameter("isFail"));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
         request.getRequestDispatcher("View/User/accountDetail.jsp").forward(request, response);
     }
 
@@ -53,18 +50,42 @@ public class AccountDetailController extends BaseRequiredAuthController {
     protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        System.out.println(request.getParameter("name"));
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String gender = request.getParameter("gender");
+        boolean gd = gender.equalsIgnoreCase("male");
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        String pass = request.getParameter("password");
+        String dateOfBirth = request.getParameter("dob");
+
         User user = new User();
-        user.setName(request.getParameter("name"));
-        user.setPhone(request.getParameter("oldphone"));
-        user.setEmail(request.getParameter("oldemail"));
-        user.setGender(request.getParameter("gender").equals("Male"));
-        user.setAddress(request.getParameter("address"));
+        user.setName(name);
+        user.setPhone(phone);
+        user.setEmail(email);
+        user.setGender(gd);
+        user.setAddress(address);
+        user.setDob(Date.valueOf(dateOfBirth));
+        
+        System.out.println(user.getName() + " " + user.getPhone() + " " 
+                + user.getEmail() + " " + user.isGender() + " " + user.getAddress() + " " + user.getDob());
+
+        Account account = new Account();
+        account.setEmail(email);
+        account.setPhone(phone);
+        account.setPass(pass);
+        account.setRole(false);
+        
+        System.out.println(account.getEmail() + " " + account.getPhone() + " " + account.getPass() + " " + account.isRole());
 
         UserDBContext udbc = new UserDBContext();
-        if (!udbc.updateUsers(user)) {
-            request.setAttribute("isFail", true);
-        }
+        AccountDBContext adbc = new AccountDBContext();
+        udbc.updateUser(user);
+        adbc.updateAccount(account);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
+
         request.getRequestDispatcher("View/User/accountDetail.jsp").forward(request, response);
     }
 

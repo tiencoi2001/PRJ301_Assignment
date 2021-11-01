@@ -5,16 +5,13 @@
  */
 package Controller.booking;
 
+import Controller.auth.BaseRequiredAuthController;
 import Model.Film;
-import Model.Time_Room_Film;
 import dal.FilmDBContext;
 import dal.Time_Room_FilmDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,28 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Vu Duc Tien
  */
-public class GetTimeController extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String date = request.getParameter("date");
-        String slot = request.getParameter("slot");
-        
-        request.setAttribute("filmID", id);
-        request.setAttribute("dateSelected", date);
-        request.setAttribute("slotSelected", slot);
-        request.getRequestDispatcher("getchair").forward(request, response);
-    }
+public class GetTimeController extends BaseRequiredAuthController {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -55,9 +31,8 @@ public class GetTimeController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void processGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
@@ -69,9 +44,30 @@ public class GetTimeController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        String id = request.getParameter("id");
+//        String date = request.getParameter("date");
+//        String slot = request.getParameter("slot");
+//
+//        request.setAttribute("filmID", id);
+//        request.setAttribute("dateSelected", date);
+//        request.setAttribute("slotSelected", slot);
+//        request.getRequestDispatcher("getchair").forward(request, response);
+
+        String id = request.getParameter("id");
+        String date = request.getParameter("selectDate");
+
+        Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
+        ArrayList<String> slots = trfdbc.getTime(id, date);
+
+        FilmDBContext fdbc = new FilmDBContext();
+        Film film = fdbc.getFilmByID(id);
+
+        request.setAttribute("film", film);
+        request.setAttribute("selectedDate", date);
+        request.setAttribute("slots", slots);
+        request.getRequestDispatcher("View/Booking/getTime.jsp").forward(request, response);
     }
 
     /**

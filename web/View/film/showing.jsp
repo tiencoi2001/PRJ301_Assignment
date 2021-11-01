@@ -149,11 +149,12 @@
                                         </div>
                                         <ul class="add-to-links">
                                             <li>
-                                                <a href="booking/getdate">
-                                                    <button type="button" title="Booking" class="button btn-booking">
+                                                <form action="booking" method="POST">
+                                                    <input type="hidden" name="id" value="${f.id}"/>
+                                                    <button type="submit" title="Booking" class="button btn-booking">
                                                         <span><span>Booking</span></span>
                                                     </button>
-                                                </a>
+                                                </form>
                                             </li>
                                         </ul>
                                     </li>

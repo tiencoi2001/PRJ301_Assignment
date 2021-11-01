@@ -12,19 +12,44 @@ import java.sql.Date;
  * @author Vu Duc Tien
  */
 public class Ticket {
-    private String acc;
+
+    private int ticketID;
+    private String phone;
+    private String email;
     private int timeID;
+    private String slot;
     private int roomID;
+    private String roomName;
     private int filmID;
+    private String filmName;
+    private String note;
     private Date date;
     private int chairID;
+    private String chairName;
+    private String img;
 
-    public String getAcc() {
-        return acc;
+    public int getTicketID() {
+        return ticketID;
     }
 
-    public void setAcc(String acc) {
-        this.acc = acc;
+    public void setTicketID(int ticketID) {
+        this.ticketID = ticketID;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getTimeID() {
@@ -35,6 +60,14 @@ public class Ticket {
         this.timeID = timeID;
     }
 
+    public String getSlot() {
+        return slot;
+    }
+
+    public void setSlot(String slot) {
+        this.slot = slot;
+    }
+
     public int getRoomID() {
         return roomID;
     }
@@ -43,12 +76,36 @@ public class Ticket {
         this.roomID = roomID;
     }
 
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
     public int getFilmID() {
         return filmID;
     }
 
     public void setFilmID(int filmID) {
         this.filmID = filmID;
+    }
+
+    public String getFilmName() {
+        return filmName;
+    }
+
+    public void setFilmName(String filmName) {
+        this.filmName = filmName;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public Date getDate() {
@@ -65,5 +122,21 @@ public class Ticket {
 
     public void setChairID(int chairID) {
         this.chairID = chairID;
+    }
+
+    public String getChairName() {
+        return chairName;
+    }
+
+    public void setChairName(String chairName) {
+        this.chairName = chairName;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

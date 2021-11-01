@@ -180,7 +180,7 @@
                                     </c:if>
                                 </div>
                                 <div>
-                                    <form action="booking" method="POST">
+                                    <form action="booking_nextstep" method="POST">
                                         Select date:<select name="selectDate">
                                             <c:forEach items="${requestScope.dates}" var="d">
                                                 <option>${d}</option>
