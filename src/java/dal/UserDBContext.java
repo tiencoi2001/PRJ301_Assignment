@@ -21,7 +21,7 @@ public class UserDBContext extends DBContext {
 
     public User getUser(String acc) {
         try {
-            String sql = "SELECT [Name],[Phone],[Email],[DoB],[Gender],[Address]\n"
+            String sql = "SELECT [ID],[Name],[Phone],[Email],[DoB],[Gender],[Address]\n"
                     + "  FROM [Users]\n"
                     + "  WHERE [Phone] = ? OR [Email] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -30,6 +30,7 @@ public class UserDBContext extends DBContext {
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 User user = new User();
+                user.setId(rs.getInt("ID"));
                 user.setName(rs.getString("Name"));
                 user.setPhone(rs.getString("Phone"));
                 user.setEmail(rs.getString("Email"));

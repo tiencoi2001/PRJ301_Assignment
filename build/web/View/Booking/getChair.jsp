@@ -79,7 +79,7 @@
                                         <div class="product-shop">
                                             <div class="f-fix">
                                                 <div class="product-primary">
-                                                    <p>CGV Vincom TN | ${requestScope.trf.roomName}</p>
+                                                    <p>CGV Vincom Thai Nguyen | ${requestScope.trf.roomName}</p>
                                                 <p>${requestScope.trf.date} ${requestScope.trf.slot}</p>
                                             </div>
                                         </div>
@@ -231,10 +231,10 @@
                             </ul>
                         </div>
 
-                        <div class="bottom-content">
+                                            <div class="bottom-content">
                             <div class="format-bg-top"></div>
 
-                            <div class="minicart-wrapper">
+                            <div class="minicart-wrapper" style="margin-left: 10%">
                                 <ul>
                                     <li class="item first" xmlns="http://www.w3.org/1999/html">
                                         <div class="product-details">
@@ -267,7 +267,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="label">Theater</td>
-                                                        <td>CGV Vincom TN</td>
+                                                        <td>CGV Vincom Thai Nguyen</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="label">Showtime</td>
@@ -278,10 +278,6 @@
                                                         <td class="label">Screen</td>
                                                         <td>${requestScope.trf.roomName}</td>
                                                     </tr>
-                                                    <tr class="block-seats" style="display: none;">
-                                                        <td class="label">Seats</td>
-                                                        <td class="data"></td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -290,10 +286,10 @@
                                     <li class="item" xmlns="http://www.w3.org/1999/html">
                                         <div class="product-details">
                                             <form action="payment" method="POST">
-                                                <input type="hidden" name="finalFilmID" value="${requestScope.id}"/>
-                                                <input type="hidden" name="finalDate" value="${requestScope.date}"/>
-                                                <input type="hidden" name="finalSlot" value="${requestScope.slot}"/>
-                                                <label>Select chair:</label><select name="chairSelected">
+                                                <input type="hidden" name="id" value="${requestScope.id}"/>
+                                                <input type="hidden" name="date" value="${requestScope.date}"/>
+                                                <input type="hidden" name="slot" value="${requestScope.slot}"/>
+                                                <label>Select chair:</label><select name="chairID">
                                                     <c:forEach items="${requestScope.chairs}" var="chair">
                                                         <option value="${chair.chairID}">${chair.name}</option>
                                                     </c:forEach>
@@ -306,7 +302,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                             <div class="format-bg-bottom"></div>
                         </div>
                     </div>

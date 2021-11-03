@@ -80,7 +80,12 @@
                                     <li ><a href="#">GIFT CARD</a></li>
                                     <li ><a href="#">Voucher</a></li>
                                     <li ><a href="#">Coupon</a></li>
+                                    <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
                                     <li class="current last"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
+                                    <c:if test="${sessionScope.account.role}">
+                                    <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
+                                    <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -123,7 +128,7 @@
                                             <p>Time: ${tk.slot}</p>
                                             <p>CGV Vincom Thai Nguyen</p>
                                             <p>${tk.roomName}( ${tk.chairName})</p>
-                                            <p><strong>₫332,000.00</strong></p>
+                                            <p><strong>${tk.price} đ</strong></p>
                                         </div>
                                     </div>
                                 </li>

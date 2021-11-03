@@ -14,6 +14,7 @@ import java.sql.Date;
 public class Ticket {
 
     private int ticketID;
+    private int userID;
     private String phone;
     private String email;
     private int timeID;
@@ -27,6 +28,8 @@ public class Ticket {
     private int chairID;
     private String chairName;
     private String img;
+    private int type;
+    private String price;
 
     public int getTicketID() {
         return ticketID;
@@ -34,6 +37,14 @@ public class Ticket {
 
     public void setTicketID(int ticketID) {
         this.ticketID = ticketID;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getPhone() {
@@ -138,5 +149,21 @@ public class Ticket {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

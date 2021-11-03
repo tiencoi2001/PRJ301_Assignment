@@ -83,13 +83,17 @@
                                                         <input required="required" type="text" name="register_fullname" class="input-text required-entry" placeholder="Name" autocomplete="off">
 
                                                         <label for="r-phone">Phone Number<span>*</span></label>
-                                                        <input required="required" type="text" name="register_phone" class="input-text required-entry" placeholder="Phone number" autocomplete="off">
+                                                        <input required="required" type="text" name="register_phone" class="input-text required-entry" placeholder="Phone number"
+                                                               pattern="[0][0-9]{9}" title="Invalid phone" autocomplete="off">
 
                                                         <label for="r-email">Email<span>*</span></label>
-                                                        <input required="required" type="email" name="register_email" class="input-text required-entry" placeholder="Email" autocomplete="off">
+                                                        <input required="required" type="email" name="register_email" class="input-text required-entry" placeholder="Email"
+                                                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Invalid email" autocomplete="off">
 
                                                         <label for="r-password">Password<span>*</span></label>
-                                                        <input required="required" type="password" name="register_password" class="input-text required-entry" placeholder="Password" autocomplete="new-password">
+                                                        <input required="required" type="password" name="register_password" class="input-text required-entry" placeholder="Password"
+                                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="new-password">
 
                                                         <label for="r-birthday">Date of birth<span>*</span></label>
                                                         <input required="required" type="date" name="register_dob" class="input-text required-entry" placeholder="Date of birth">

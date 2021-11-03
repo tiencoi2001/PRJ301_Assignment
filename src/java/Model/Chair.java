@@ -13,6 +13,8 @@ public class Chair {
     private int chairID;
     private int roomID;
     private String name;
+    private int type;
+    private String price;
 
     public int getChairID() {
         return chairID;
@@ -37,5 +39,20 @@ public class Chair {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    } 
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 }

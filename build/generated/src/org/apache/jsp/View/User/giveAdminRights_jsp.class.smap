@@ -1,0 +1,23 @@
+SMAP
+giveAdminRights_jsp.java
+JSP
+*S JSP
+*F
++ 0 giveAdminRights.jsp
+View/User/giveAdminRights.jsp
+*L
+5,60:54
+65:114,3
+66,2:117
+68:119,3
+69,17:122
+85:214,8
+86,2:222
+87,16:141
+103:157,3
+104,6:160
+110,2:166,3
+112,19:172
+131:191,3
+132,3:194
+*E

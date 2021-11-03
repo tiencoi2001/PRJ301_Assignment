@@ -25,11 +25,6 @@ public class Film {
     private String detail;
     private boolean showing;
     private String image;
-
-    @Override
-    public String toString() {
-        return "Film{" + "id=" + id + ", name=" + name + ", director=" + director + ", starName=" + starName + ", genre=" + genre + ", premiere=" + premiere + ", length=" + length + ", language=" + language + ", rated=" + rated + ", detail=" + detail + ", showing=" + showing + ", image=" + image + '}';
-    }
     
     public int getId() {
         return id;

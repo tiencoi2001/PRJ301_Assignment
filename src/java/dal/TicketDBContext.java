@@ -19,30 +19,31 @@ import java.util.logging.Logger;
  */
 public class TicketDBContext extends DBContext {
 
-    public boolean insertTicket(Ticket ticket) {
+    public void insertTicket(Ticket ticket) {
         try {
             connection.setAutoCommit(false);
             String sql = "INSERT INTO [Ticket]\n"
-                    + "           ([Phone],[Email],[TimeID],[RoomID],[FilmID],[Date],[ChairID])\n"
-                    + "     VALUES (?,?,?,?,?,?,?)";
+                    + "           ([UserID],[Phone],[Email],[TimeID],[RoomID],[FilmID],[Date],[ChairID],[Type],[Price])\n"
+                    + "     VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, ticket.getPhone());
-            stm.setString(2, ticket.getEmail());
-            stm.setInt(3, ticket.getTimeID());
-            stm.setInt(4, ticket.getRoomID());
-            stm.setInt(5, ticket.getFilmID());
-            stm.setDate(6, ticket.getDate());
-            stm.setInt(7, ticket.getChairID());
+            stm.setInt(1, ticket.getUserID());
+            stm.setString(2, ticket.getPhone());
+            stm.setString(3, ticket.getEmail());
+            stm.setInt(4, ticket.getTimeID());
+            stm.setInt(5, ticket.getRoomID());
+            stm.setInt(6, ticket.getFilmID());
+            stm.setDate(7, ticket.getDate());
+            stm.setInt(8, ticket.getChairID());
+            stm.setInt(9, ticket.getType());
+            stm.setString(10, ticket.getPrice());
             stm.execute();
             connection.commit();
         } catch (SQLException ex) {
             Logger.getLogger(TicketDBContext.class.getName()).log(Level.SEVERE, null, ex);
             try {
                 connection.rollback();
-                return false;
             } catch (SQLException ex1) {
                 Logger.getLogger(TicketDBContext.class.getName()).log(Level.SEVERE, null, ex1);
-                return false;
             }
         } finally {
             try {
@@ -51,7 +52,6 @@ public class TicketDBContext extends DBContext {
                 Logger.getLogger(TicketDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return true;
     }
 
     public ArrayList<Ticket> getTicket(String phone, String email) {
@@ -59,12 +59,13 @@ public class TicketDBContext extends DBContext {
         try {
             String sql = "SELECT [TicketID],[Phone],[Email],tk.[TimeID],[Slot],tk.[RoomID],\n"
                     + "  r.[Name] AS [roomName],[FilmID], f.[Name] AS [filmName],[Note],\n"
-                    + "  [Date],tk.[ChairID],[ChairName],[Image]\n"
+                    + "  [Date],tk.[ChairID],[ChairName],[Image],tk.[TypeName],tk.[Price]\n"
                     + "  FROM [Ticket] tk\n"
                     + "  INNER JOIN Times t ON t.[TimeID] = tk.[TimeID]\n"
                     + "  INNER JOIN Rooms r ON r.[RoomID] = tk.[RoomID]\n"
                     + "  INNER JOIN Films f ON f.[ID] = tk.[FilmID]\n"
                     + "  INNER JOIN Chairs c ON c.[ChairID] = tk.[ChairID]\n"
+                    + "  INNER JOIN Price p ON p.[Type] = c.[Type]\n"
                     + "  WHERE [Phone] = ? AND [Email] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, phone);
@@ -86,6 +87,8 @@ public class TicketDBContext extends DBContext {
                 t.setChairID(rs.getInt("ChairID"));
                 t.setChairName(rs.getString("ChairName"));
                 t.setImg(rs.getString("Image"));
+                t.setType(rs.getInt("TypeName"));
+                t.setPrice(rs.getString("Price"));
                 tickets.add(t);
             }
             return tickets;

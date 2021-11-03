@@ -1,0 +1,340 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 1, 2021, 6:06:43 PM
+    Author     : Vu Duc Tien
+*/
+body{
+    background-color: #FDFCF0 !important;
+}
+.width-30 {
+    width: 29%;
+}
+.width-35 {
+    width: 34%;
+}
+.width-50 {
+    width: 49%;
+}
+.width-65 {
+    width: 64%;
+}
+.width-70 {
+    width: 69%;
+}
+.width-100 {
+    width: 100%;
+}
+.padding-02 {
+    padding: 0 2% !important;
+}
+.height-100px {
+    height: 100px;
+}
+.vertical-scroll {
+    overflow-y: auto;
+    display: block;
+}
+input[name="code[vpb]"]{
+    width:75%;
+    margin-right: 10px;
+    margin-bottom:15px;
+}
+.vertical-scroll tr {
+    display: contents;
+    overflow: hidden;
+}
+.f-left {
+    float: left;
+}
+.f-right {
+    float: right;
+}
+.col2-set .title {
+    min-height: 40px;
+    margin-top:10px;
+}
+.section {
+    cursor: pointer;
+}
+.cls-seabank p{
+    padding-top:10px;
+}
+.qr-content{
+    float: left;
+    width: 100%;
+}
+#timer{
+    color: #ff0000;
+    font-weight: bold;
+}
+.resultzalopay{
+    text-align:center;
+}
+.resultzalopay img{
+    display:inline-block;
+}
+.timer-remain{
+    font-style:italic;
+}
+.qr-content .qr-zalopay{
+    float: left;
+    width: 42%;
+    margin: 0 2% 0 0;
+}
+.qr-content .resultzalopay{
+    text-align:center;
+}
+.qr-content .qr-instructions{
+    float: left;
+    width: 52%;
+    margin: 0 2% 0 2%;
+    text-align: left;
+}
+.qr-instructions p{
+    padding-top:20px;
+}
+#checkout-step-0, #checkout-step-1 dt , .cart-sidebar tr {
+    background: #fff1ce;
+}
+#checkout-step-0, #checkout-step-1 dt {
+    padding : 10px;
+}
+.data-table tbody tr {
+    border-bottom: 2px dashed #c3bda5;
+}
+#checkout-step-1 dl dt {
+    margin-bottom: 5px;
+}
+.discount-chose-points , .discount-chose-giftcard {
+    border-top: 1px dashed #c3bda5;
+    margin: 15px 0;
+    padding-top:10px;
+}
+.partnership-list, .partnership-view-list {
+    width: 100%;
+    margin: 20px 0;
+}
+.partnership-list li, .partnership-view-list li {
+    float: none;
+}
+.partnership-list li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.border-left {
+    border-left: 1px solid #ededed;
+}
+.partnership-view-list .partnership-item {
+    display: none;
+}	
+.cart-items, .chosen-discount, .chosen-payment {
+    border: 1px solid #d4d3c9;
+}
+.cart-sidebar table {
+    width: 100%;
+}
+.cart-sidebar thead, .cart-sidebar tfoot {
+    font-weight: bold;
+    text-align: center;
+}
+.cart-sidebar tfoot td {
+    background: #d0cece;
+}
+.cart-sidebar thead tr {
+    border-bottom: 1px solid #d4d3c9;
+}
+.chosen-discount, .chosen-payment {
+    margin-top: 15px;
+}
+.cart-sidebar .data-table tbody tr {
+    border-bottom: 1px solid #d4d3c9;
+}
+.chosen-payment thead tr{
+    background: #e71a0f;
+    color: #fff;
+}
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.vertical-scroll tr{
+    float:left;
+    width:100%;
+}
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:15px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+    text-align:center;
+} 
+.popup-inner h2{
+    border-bottom: 1px solid #636363;
+    text-align: left;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+} 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+.countexpire{
+    margin-top:15px;
+    background:#d0cece;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #d4d3c9;
+}
+.countexpire h3{
+    background: #fff1ce;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 13px;
+}
+#countdown{
+    padding: 0 0 10px;
+    font-weight: bold;
+}
+.cgvminutes,.cgvseconds{
+    font-size: 20px;
+    font-weight: normal;
+}
+#countdown > div {
+    padding: 10px;
+    border-radius: 3px;
+    background: #fdfcf0;
+    display: inline-block;
+}
+#countdown div > span {
+    padding: 15px;
+    border-radius: 3px;
+    background: #e71a0f;
+    display: inline-block;
+    width: 50px;
+}
+.smalltext {
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: 100;
+    color:#999;
+}
+.cgvianticket-color{
+    color:#e71a0f;
+}
+.promo-list li, .promo-view-list li{
+    float: none;
+}
+.promo-list li.active {
+    background-position: 160px 0px;
+    color: #ca252c;
+}
+.promo-list li {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ededed !important;
+    width: 100%;
+    /*background: url(../images/bg-cgv/bg-icon-partner-cgv.png) no-repeat right bottom;*/
+    height: 16px;
+    color: #bbbdbf;
+    font-weight: bold;
+}
+.promo-list li:last-child {
+    padding-bottom: 20px;
+    border-bottom: none;
+}
+.promo-list li {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ededed;
+}
+.promo-list, .promo-view-list {
+    width: 100%;
+    margin: 20px 0;
+}
+.promo-item{
+    display: none;
+}
+.promo-verification{
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 20%;
+}
+.promo-verification label,.promo-item .title, .promo-item .title label{
+    padding-bottom: 10px;
+}
+.pm_icon{
+    background-position:50% 50%;background-size:100% 100%;width:37px; height:37px;margin-right: 5px;margin-top: -9px;display: inline-block;
+}
+.pm_name{
+    margin-top: -31px;vertical-align: middle;display:inline-block
+}
+.pm_diff{font-weight:bold;}
+.select-seats span label{
+    font-weight:normal;
+}
+.select-seats{
+    width: 206px;
+    margin-left: 5px;
+}
+.discount-grandtotal{
+    clear:both;
+}
+.film-session{
+    width:270px;
+    margin-left: 5px;
+}
+.lastdiscount,.lastprice{
+    font-size:13px;
+}
+.notice_info{
+    padding: 5px 10px 15px;
+}

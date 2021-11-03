@@ -9,6 +9,7 @@ import Model.Account;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,6 +43,80 @@ public class AccountDBContext extends DBContext {
         return null;
     }
 
+    public ArrayList<Account> getListIsNotAdmin() {
+        ArrayList<Account> accounts = new ArrayList<>();
+        try {
+            String sql = "SELECT [Phone],[Email],[Password],[role]\n"
+                    + "  FROM [Accounts]\n"
+                    + "  WHERE [role] = 'false'";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Account account = new Account();
+                account.setPhone(rs.getString("Phone"));
+                account.setEmail(rs.getString("Email"));
+                account.setPass(rs.getString("Password"));
+                account.setRole(rs.getBoolean("Role"));
+                accounts.add(account);
+            }
+            return accounts;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList<Account> getListIsAdmin(String email) {
+        ArrayList<Account> accounts = new ArrayList<>();
+        try {
+            String sql = " SELECT [Phone],[Email],[Password],[role]\n"
+                    + "  FROM [Accounts]\n"
+                    + "  WHERE [role] = 'true' AND [Email] <> 'admin' AND [Email] <> ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, email);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Account account = new Account();
+                account.setPhone(rs.getString("Phone"));
+                account.setEmail(rs.getString("Email"));
+                account.setPass(rs.getString("Password"));
+                account.setRole(rs.getBoolean("Role"));
+                accounts.add(account);
+            }
+            return accounts;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void updateAdminRights(String email_phone, boolean isAdmin) {
+        try {
+            connection.setAutoCommit(false);
+            String sql = "UPDATE [Accounts]\n"
+                    + "   SET [role] = ?\n"
+                    + " WHERE [email] + ' - ' + [Phone] = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setBoolean(1, isAdmin);
+            stm.setString(2, email_phone);
+            stm.execute();
+            connection.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                connection.rollback();
+            } catch (SQLException ex1) {
+                Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     public boolean isExistAccount(String phone, String email) {
         try {
             String sql = "SELECT [Phone],[Email]\n"
@@ -60,7 +135,7 @@ public class AccountDBContext extends DBContext {
         return false;
     }
 
-    public boolean insertUser(Account account) {
+    public void insertUser(Account account) {
         try {
             connection.setAutoCommit(false);
             String sql = "INSERT INTO [Accounts]\n"
@@ -77,10 +152,8 @@ public class AccountDBContext extends DBContext {
             Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             try {
                 connection.rollback();
-                return false;
             } catch (SQLException ex1) {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex1);
-                return false;
             }
         } finally {
             try {
@@ -89,7 +162,6 @@ public class AccountDBContext extends DBContext {
                 Logger.getLogger(UserDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return true;
     }
 
     public void updateAccount(Account account) {

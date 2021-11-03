@@ -11,10 +11,20 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -123,65 +133,75 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <form class=\"cgv-signup-form\" id=\"cgv-signup-form\" action=\"register\" method=\"POST\">\n");
       out.write("                                                    <fieldset>\n");
       out.write("                                                        <label for=\"r-fname\">Name<span>*</span></label>\n");
-      out.write("                                                        <input type=\"text\" name=\"register_fullname\" class=\"input-text required-entry\" placeholder=\"Name\" autocomplete=\"off\">\n");
+      out.write("                                                        <input required=\"required\" type=\"text\" name=\"register_fullname\" class=\"input-text required-entry\" placeholder=\"Name\" autocomplete=\"off\">\n");
       out.write("\n");
       out.write("                                                        <label for=\"r-phone\">Phone Number<span>*</span></label>\n");
-      out.write("                                                        <input type=\"text\" name=\"register_phone\" class=\"input-text required-entry\" placeholder=\"Phone number\" autocomplete=\"off\">\n");
+      out.write("                                                        <input required=\"required\" type=\"text\" name=\"register_phone\" class=\"input-text required-entry\" placeholder=\"Phone number\"\n");
+      out.write("                                                               pattern=\"[0][0-9]{9}\" title=\"Invalid phone\" autocomplete=\"off\">\n");
       out.write("\n");
       out.write("                                                        <label for=\"r-email\">Email<span>*</span></label>\n");
-      out.write("                                                        <input type=\"text\" name=\"register_email\" class=\"input-text required-entry\" placeholder=\"Email\" autocomplete=\"off\">\n");
+      out.write("                                                        <input required=\"required\" type=\"email\" name=\"register_email\" class=\"input-text required-entry\" placeholder=\"Email\"\n");
+      out.write("                                                               pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\" title=\"Invalid email\" autocomplete=\"off\">\n");
       out.write("\n");
       out.write("                                                        <label for=\"r-password\">Password<span>*</span></label>\n");
-      out.write("                                                        <input type=\"password\" name=\"register_password\" class=\"input-text required-entry\" placeholder=\"Password\" autocomplete=\"new-password\">\n");
+      out.write("                                                        <input required=\"required\" type=\"password\" name=\"register_password\" class=\"input-text required-entry\" placeholder=\"Password\"\n");
+      out.write("                                                               pattern=\"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}\"\n");
+      out.write("                                                               title=\"Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters\" autocomplete=\"new-password\">\n");
       out.write("\n");
       out.write("                                                        <label for=\"r-birthday\">Date of birth<span>*</span></label>\n");
-      out.write("                                                        <input type=\"date\" name=\"register_dob\" class=\"input-text required-entry\" placeholder=\"Date of birth\">\n");
-      out.write("                                                        <label for=\"r-fname\" class=\"gender-title\">Gender<span>*</span>\n");
+      out.write("                                                        <input required=\"required\" type=\"date\" name=\"register_dob\" class=\"input-text required-entry\" placeholder=\"Date of birth\">\n");
+      out.write("\n");
+      out.write("                                                        <label for=\"r-fname\" class=\"gender-title\" style=\"margin-left: 20%;\">Gender<span>*</span>\n");
       out.write("                                                            <input type=\"radio\" name=\"register_gender\" id=\"male-gender\" value=\"Male\"> Male\n");
       out.write("                                                            <input type=\"radio\" name=\"register_gender\" id=\"female-gender\" value=\"Female\"> Female</label>\n");
+      out.write("\n");
       out.write("                                                        <label for=\"r-city\">Address<span>*</span></label>\n");
-      out.write("                                                        <input type=\"text\" name=\"register_address\" class=\"input-text required-entry\" placeholder=\"Address\" autocomplete=\"off\">\n");
+      out.write("                                                        <input required=\"required\" type=\"text\" name=\"register_address\" class=\"input-text required-entry\" placeholder=\"Address\" autocomplete=\"off\">\n");
       out.write("                                                    </fieldset>\n");
       out.write("                                                    <input type=\"submit\" id=\"cgv-btnsignup\" value=\"REGISTER\">\n");
-      out.write("                                                </form>\n");
+      out.write("                                                ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("                                            </form>\n");
+      out.write("                                        </div>\n");
+      out.write("                                        <span id=\"error-validate\"></span>\n");
+      out.write("                                        <div id=\"correct\" style=\"color:gray;\"></div>\n");
+      out.write("                                        <div id=\"seconds\"></div>\n");
+      out.write("                                    </div>            \n");
+      out.write("                                    <div class=\"l-login\">\n");
+      out.write("                                        <div id=\"slider-container\">\n");
+      out.write("                                            <div class=\"mySlides fade\">\n");
+      out.write("                                                <img src=\"https://www.cgv.vn/media/wysiwyg/2020/3.jpg\" />\n");
       out.write("                                            </div>\n");
-      out.write("                                            <span id=\"error-validate\"></span>\n");
-      out.write("                                            <div id=\"correct\" style=\"color:gray;\"></div>\n");
-      out.write("                                            <div id=\"seconds\"></div>\n");
-      out.write("                                        </div>            \n");
-      out.write("                                        <div class=\"l-login\">\n");
-      out.write("                                            <div id=\"slider-container\">\n");
-      out.write("                                                <div class=\"mySlides fade\">\n");
-      out.write("                                                    <img src=\"https://www.cgv.vn/media/wysiwyg/2020/3.jpg\" />\n");
-      out.write("                                                </div>\n");
-      out.write("                                                <div class=\"mySlides fade\">\n");
-      out.write("                                                    <img src=\"https://www.cgv.vn/media/wysiwyg/2020/1.jpg\" />\n");
-      out.write("                                                </div>\n");
-      out.write("                                                <div class=\"mySlides fade\">\n");
-      out.write("                                                    <img src=\"https://www.cgv.vn/media/wysiwyg/2020/2.jpg\" />\n");
-      out.write("                                                </div>\n");
+      out.write("                                            <div class=\"mySlides fade\">\n");
+      out.write("                                                <img src=\"https://www.cgv.vn/media/wysiwyg/2020/1.jpg\" />\n");
       out.write("                                            </div>\n");
-      out.write("                                            <!-- The dots/circles -->\n");
-      out.write("                                            <div class=\"cgv-dots\">\n");
-      out.write("                                                <span class=\"dot\" onclick=\"currentSlide(0)\"></span>\n");
-      out.write("                                                <span class=\"dot\" onclick=\"currentSlide(1)\"></span>\n");
-      out.write("                                                <span class=\"dot\" onclick=\"currentSlide(2)\"></span>\n");
+      out.write("                                            <div class=\"mySlides fade\">\n");
+      out.write("                                                <img src=\"https://www.cgv.vn/media/wysiwyg/2020/2.jpg\" />\n");
       out.write("                                            </div>\n");
       out.write("                                        </div>\n");
-      out.write("                                    </div>\n");
-      out.write("                                    <div class=\"col-2\">\n");
-      out.write("                                        <div class=\"banner-login-page\">\n");
+      out.write("                                        <!-- The dots/circles -->\n");
+      out.write("                                        <div class=\"cgv-dots\">\n");
+      out.write("                                            <span class=\"dot\" onclick=\"currentSlide(0)\"></span>\n");
+      out.write("                                            <span class=\"dot\" onclick=\"currentSlide(1)\"></span>\n");
+      out.write("                                            <span class=\"dot\" onclick=\"currentSlide(2)\"></span>\n");
       out.write("                                        </div>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
+      out.write("                                <div class=\"col-2\">\n");
+      out.write("                                    <div class=\"banner-login-page\">\n");
+      out.write("                                    </div>\n");
+      out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <script type=\"text/javascript\" src=\"");
+      out.write("                        </div>\n");
+      out.write("                        <script type=\"text/javascript\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/js/registerJS.js\"></script>\n");
-      out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <!-- Footer-->\n");
+      out.write("            </div>\n");
+      out.write("            <!-- Footer-->\n");
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../Header_Footer/footer.jsp", out, false);
       out.write("\n");
@@ -199,5 +219,33 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${requestScope.isFail == \"true\"}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("                                                    <p>Phone number and email already exist</p>\n");
+        out.write("                                                ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
   }
 }

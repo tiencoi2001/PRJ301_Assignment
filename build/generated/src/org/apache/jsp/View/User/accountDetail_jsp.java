@@ -11,10 +11,20 @@ public final class accountDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test_nobody;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_if_test_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_if_test_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -124,6 +134,11 @@ public final class accountDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                    <li ><a href=\"#\">GIFT CARD</a></li>\n");
       out.write("                                    <li ><a href=\"#\">Voucher</a></li>\n");
       out.write("                                    <li ><a href=\"#\">Coupon</a></li>\n");
+      out.write("                                ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("                                    <li ><a href=\"giveAdminRights\">GIVE ADMIN RIGHTS</a></li>\n");
       out.write("                                    <li class=\"last\"><a href=\"transactionsHistory\">TRANSACTIONS HISTORY</a></li>\n");
       out.write("                                </ul>\n");
       out.write("                            </div>\n");
@@ -141,6 +156,9 @@ public final class accountDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                <input type=\"hidden\" name=\"email\" value=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user.email}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\" />\n");
+      out.write("                                <input type=\"hidden\" name=\"dob\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user.dob}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\"/>\n");
       out.write("                                <ul class=\"form-list edit-info-cgv-left\">\n");
       out.write("                                    <li class=\"fields\">\n");
       out.write("                                        <div class=\"customer-name\">\n");
@@ -188,7 +206,7 @@ public final class accountDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                    <li>\n");
       out.write("                                        <label class=\"required\"><em>*</em>Password</label>\n");
       out.write("                                        <div class=\"input-box\">\n");
-      out.write("                                            <input type=\"password\" required=\"required\" title=\"Current Password\" name=\"password\"/>\n");
+      out.write("                                            <input type=\"password\" required=\"required\" title=\"Password\" name=\"password\"/>\n");
       out.write("                                        </div>\n");
       out.write("                                    </li>\n");
       out.write("                                </ul>\n");
@@ -224,5 +242,23 @@ public final class accountDetail_jsp extends org.apache.jasper.runtime.HttpJspBa
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test_nobody.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user.role}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test_nobody.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test_nobody.reuse(_jspx_th_c_if_0);
+    return false;
   }
 }

@@ -8,7 +8,6 @@ package Controller.flim;
 import Model.Film;
 import dal.FilmDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -25,8 +25,9 @@ public class FilmDBContext extends DBContext {
         try {
             String sql = "SELECT [ID],[Name],[Director],[StarName],[Genre],"
                     + "[Premiere],[Length],[Language],[Rated],[Note],[Detail],[Showing],[Image]\n"
-                    + "FROM [Films]"
-                    + "WHERE Showing = ?";
+                    + "FROM [Films]\n"
+                    + "WHERE Showing = ?\n"
+                    + "ORDER BY [ID] DESC";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setBoolean(1, showing);
             ResultSet rs = stm.executeQuery();

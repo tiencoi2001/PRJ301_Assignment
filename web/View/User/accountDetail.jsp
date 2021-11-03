@@ -82,17 +82,21 @@
                                     <li ><a href="#">Voucher</a></li>
                                     <li ><a href="#">Coupon</a></li>
                                     <li class="last"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
-                                </ul>
-                            </div>
+                                    <c:if test="${sessionScope.account.role}">
+                                    <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
+                                    <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    </c:if>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-main">
-                        <div class="my-account"><div class="page-title">
-                                <h1>Edit Account Detail</h1>
-                            </div>
-                            <form action="accountDetail" method="POST">
-                                <div class="fieldset edit-account-my-cgv">
-                                    <input type="hidden" name="phone" value="${sessionScope.user.phone}" />
+                </div>
+                <div class="col-main">
+                    <div class="my-account"><div class="page-title">
+                            <h1>Edit Account Detail</h1>
+                        </div>
+                        <form action="accountDetail" method="POST">
+                            <div class="fieldset edit-account-my-cgv">
+                                <input type="hidden" name="phone" value="${sessionScope.user.phone}" />
                                 <input type="hidden" name="email" value="${sessionScope.user.email}" />
                                 <input type="hidden" name="dob" value="${sessionScope.user.dob}"/>
                                 <ul class="form-list edit-info-cgv-left">

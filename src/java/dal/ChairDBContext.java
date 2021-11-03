@@ -21,8 +21,9 @@ public class ChairDBContext extends DBContext {
 
     public Chair getChair(String id) {
         try {
-            String sql = "SELECT [ChairID],[RoomID],[ChairName]\n"
-                    + "  FROM [Chairs]\n"
+            String sql = "SELECT [ChairID],[RoomID],[ChairName],c.[Type],[Price]\n"
+                    + "  FROM [Chairs] c\n"
+                    + "  INNER JOIN [Price] p ON c.[Type] = p.[Type]"
                     + "  WHERE ChairID = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, id);
@@ -32,6 +33,8 @@ public class ChairDBContext extends DBContext {
                 chair.setChairID(rs.getInt("ChairID"));
                 chair.setRoomID(rs.getInt("RoomID"));
                 chair.setName(rs.getString("ChairName"));
+                chair.setType(rs.getInt("Type"));
+                chair.setPrice(rs.getString("Price"));
                 return chair;
             }
 
@@ -103,9 +106,12 @@ public class ChairDBContext extends DBContext {
 //                cdbc.insertChair(3, str.charAt(i) + Integer.toString(j));
 //            }
 //        }
-        ArrayList<Chair> chairs = cdbc.getChairByRoomID("1", "7h30 - 9h30", "2021-12-13");
-        for (Chair chair : chairs) {
-            System.out.println(chair.getChairID() + " " + chair.getName());
-        }
+//        ArrayList<Chair> chairs = cdbc.getChairByRoomID("1", "7h30 - 9h30", "2021-12-13");
+//        for (Chair chair : chairs) {
+//            System.out.println(chair.getChairID() + " " + chair.getName());
+//        }
+        Chair c = cdbc.getChair("9");
+        System.out.println(c.getChairID() + " " + c.getName() + " " + c.getRoomID() + " " + c.getType() + " " + c.getPrice());
+
     }
 }

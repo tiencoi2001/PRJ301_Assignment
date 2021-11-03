@@ -81,6 +81,10 @@
                                     <li ><a href="#">Voucher</a></li>
                                     <li ><a href="#">Coupon</a></li>
                                     <li class="last"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
+                                    <c:if test="${sessionScope.account.role}">
+                                    <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
+                                    <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
