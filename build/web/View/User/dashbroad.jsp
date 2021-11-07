@@ -83,7 +83,9 @@
                                     <li class="last"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
                                     <c:if test="${sessionScope.account.role}">
                                     <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
-                                    <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    <li ><a href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    <li ><a href="updateNewShowingFilm">UPDATE NEW SHOWING FILM</a></li>
+                                    <li ><a href="addNewComingFilm">ADD NEW COMING FILM</a></li>
                                     </c:if>
                                 </ul>
                             </div>
@@ -113,8 +115,8 @@
                                             </div>
                                             <div class="box-content box-content-my-cgv col2-set">
                                                 <span>Name : ${sessionScope.user.name}</span>
-                                                <span>Email : ${sessionScope.user.email}</span>
-                                                <span>Telephone : ${sessionScope.user.phone}</span>
+                                                <span>Email : ${sessionScope.account.email}</span>
+                                                <span>Telephone : ${sessionScope.account.phone}</span>
                                             </div>
                                         </div>
                                     </div>

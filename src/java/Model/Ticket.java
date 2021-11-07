@@ -15,8 +15,7 @@ public class Ticket {
 
     private int ticketID;
     private int userID;
-    private String phone;
-    private String email;
+    private int scheduleID;
     private int timeID;
     private String slot;
     private int roomID;
@@ -47,20 +46,12 @@ public class Ticket {
         this.userID = userID;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getScheduleID() {
+        return scheduleID;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setScheduleID(int scheduleID) {
+        this.scheduleID = scheduleID;
     }
 
     public int getTimeID() {

@@ -80,11 +80,12 @@
                                     <li ><a href="#">GIFT CARD</a></li>
                                     <li ><a href="#">Voucher</a></li>
                                     <li ><a href="#">Coupon</a></li>
-                                    <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
-                                    <li class="current last"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
+                                    <li class="current"><a href="transactionsHistory">TRANSACTIONS HISTORY</a></li>
                                     <c:if test="${sessionScope.account.role}">
                                     <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
-                                    <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    <li ><a href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    <li ><a href="updateNewShowingFilm">UPDATE NEW SHOWING FILM</a></li>
+                                    <li ><a href="addNewComingFilm">ADD NEW COMING FILM</a></li>
                                     </c:if>
                                 </ul>
                             </div>

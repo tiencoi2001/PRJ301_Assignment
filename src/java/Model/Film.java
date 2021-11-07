@@ -17,7 +17,7 @@ public class Film {
     private String director;
     private String starName;
     private String genre;
-    private String premiere;
+    private Date premiere;
     private int length;
     private String language;
     private String rated;
@@ -66,11 +66,11 @@ public class Film {
         this.genre = genre;
     }
 
-    public String getPremiere() {
+    public Date getPremiere() {
         return premiere;
     }
 
-    public void setPremiere(String premiere) {
+    public void setPremiere(Date premiere) {
         this.premiere = premiere;
     }
 

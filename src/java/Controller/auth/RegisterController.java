@@ -10,7 +10,6 @@ import Model.User;
 import dal.AccountDBContext;
 import dal.UserDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -60,7 +59,6 @@ public class RegisterController extends HttpServlet {
         
         User user = new User();
         user.setName(request.getParameter("register_fullname"));
-        user.setPhone(phone);
         user.setEmail(email);
         user.setDob(Date.valueOf(request.getParameter("register_dob")));
         user.setGender(request.getParameter("register_gender").equalsIgnoreCase("Male"));

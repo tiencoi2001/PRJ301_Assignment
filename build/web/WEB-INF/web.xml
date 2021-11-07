@@ -62,11 +62,19 @@
     </servlet>
     <servlet>
         <servlet-name>GiveAdminRightsController</servlet-name>
-        <servlet-class>Controller.user.GiveAdminRightsController</servlet-class>
+        <servlet-class>forAdmin.GiveAdminRightsController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RemoveAdminRightsController</servlet-name>
-        <servlet-class>Controller.user.RemoveAdminRightsController</servlet-class>
+        <servlet-class>forAdmin.RemoveAdminRightsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateNewShowingFilm</servlet-name>
+        <servlet-class>forAdmin.UpdateNewShowingFilmController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewComingFilmController</servlet-name>
+        <servlet-class>forAdmin.AddNewComingFilmController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -135,6 +143,14 @@
     <servlet-mapping>
         <servlet-name>RemoveAdminRightsController</servlet-name>
         <url-pattern>/removeAdminRights</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateNewShowingFilm</servlet-name>
+        <url-pattern>/updateNewShowingFilm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewComingFilmController</servlet-name>
+        <url-pattern>/addNewComingFilm</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

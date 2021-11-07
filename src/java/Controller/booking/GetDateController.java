@@ -8,7 +8,7 @@ package Controller.booking;
 import Controller.auth.BaseRequiredAuthController;
 import Model.Film;
 import dal.FilmDBContext;
-import dal.Time_Room_FilmDBContext;
+import dal.ScheduleDBContext;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -49,8 +49,8 @@ public class GetDateController extends BaseRequiredAuthController {
             throws ServletException, IOException {
         String id = request.getParameter("id");
 
-        Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
-        ArrayList<Date> dates = trfdbc.getDate(id);
+        ScheduleDBContext sdbc = new ScheduleDBContext();
+        ArrayList<Date> dates = sdbc.getDate(id);
 
         FilmDBContext fdbc = new FilmDBContext();
         Film film = fdbc.getFilmByID(id);

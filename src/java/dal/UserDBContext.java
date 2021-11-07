@@ -21,9 +21,10 @@ public class UserDBContext extends DBContext {
 
     public User getUser(String acc) {
         try {
-            String sql = "SELECT [ID],[Name],[Phone],[Email],[DoB],[Gender],[Address]\n"
-                    + "  FROM [Users]\n"
-                    + "  WHERE [Phone] = ? OR [Email] = ?";
+            String sql = "SELECT [ID],[Name],u.[Email],[DoB],[Gender],[Address]\n"
+                    + "  FROM [Users] u\n"
+                    + "  INNER JOIN [Accounts] a ON a.Email = u.Email\n"
+                    + "  WHERE a.[Phone] = ? Or a.[Email] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, acc);
             stm.setString(2, acc);
@@ -32,7 +33,6 @@ public class UserDBContext extends DBContext {
                 User user = new User();
                 user.setId(rs.getInt("ID"));
                 user.setName(rs.getString("Name"));
-                user.setPhone(rs.getString("Phone"));
                 user.setEmail(rs.getString("Email"));
                 user.setDob(rs.getDate("DoB"));
                 user.setGender(rs.getBoolean("Gender"));
@@ -49,16 +49,15 @@ public class UserDBContext extends DBContext {
         try {
             connection.setAutoCommit(false);
             String sql = "INSERT INTO [Users]\n"
-                    + "([Name],[Phone],[Email],[DoB],[Gender],[Address])\n"
+                    + "([Name],[Email],[DoB],[Gender],[Address])\n"
                     + "VALUES\n"
-                    + "(?,?,?,?,?,?)";
+                    + "(?,?,?,?,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, user.getName());
-            stm.setString(2, user.getPhone());
-            stm.setString(3, user.getEmail());
-            stm.setDate(4, user.getDob());
-            stm.setBoolean(5, user.isGender());
-            stm.setString(6, user.getAddress());
+            stm.setString(2, user.getEmail());
+            stm.setDate(3, user.getDob());
+            stm.setBoolean(4, user.isGender());
+            stm.setString(5, user.getAddress());
             stm.execute();
             connection.commit();
         } catch (SQLException ex) {
@@ -87,13 +86,12 @@ public class UserDBContext extends DBContext {
                     + "   SET [Name] = ?\n"
                     + "      ,[Gender] = ?\n"
                     + "      ,[Address] = ?\n"
-                    + " WHERE [Phone] = ? AND [Email] = ?";
+                    + " WHERE [ID] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, user.getName());
             stm.setBoolean(2, user.isGender());
             stm.setString(3, user.getAddress());
-            stm.setString(4, user.getPhone());
-            stm.setString(5, user.getEmail());
+            stm.setInt(4, user.getId());
             stm.executeUpdate();
             connection.commit();
         } catch (SQLException ex) {
@@ -117,14 +115,12 @@ public class UserDBContext extends DBContext {
 //        User u = udbc.getUser("0983563147");
 //        System.out.println(u.getName() + " " + u.getEmail() + " "+ u.getPhone());
         User u = new User();
-        u.setPhone("0983563147");
         u.setEmail("tienvdhe153313@fpt.edu.vn");
         u.setName("Vũ Đức Tiến");
         u.setGender(true);
         u.setAddress("Hà Nội");
         udbc.updateUser(u);
-        
-        
+
         System.out.println();
 
     }

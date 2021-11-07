@@ -61,22 +61,16 @@ public class AccountDetailController extends BaseRequiredAuthController {
 
         User user = new User();
         user.setName(name);
-        user.setPhone(phone);
         user.setEmail(email);
         user.setGender(gd);
         user.setAddress(address);
         user.setDob(Date.valueOf(dateOfBirth));
-        
-        System.out.println(user.getName() + " " + user.getPhone() + " " 
-                + user.getEmail() + " " + user.isGender() + " " + user.getAddress() + " " + user.getDob());
 
         Account account = new Account();
         account.setEmail(email);
         account.setPhone(phone);
         account.setPass(pass);
         account.setRole(false);
-        
-        System.out.println(account.getEmail() + " " + account.getPhone() + " " + account.getPass() + " " + account.isRole());
 
         UserDBContext udbc = new UserDBContext();
         AccountDBContext adbc = new AccountDBContext();

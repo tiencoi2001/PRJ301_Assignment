@@ -22,20 +22,12 @@ public class TicketDBContext extends DBContext {
     public void insertTicket(Ticket ticket) {
         try {
             connection.setAutoCommit(false);
-            String sql = "INSERT INTO [Ticket]\n"
-                    + "           ([UserID],[Phone],[Email],[TimeID],[RoomID],[FilmID],[Date],[ChairID],[Type],[Price])\n"
-                    + "     VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO [Ticket]([UserID],[ScheduleID],[ChairID])\n"
+                    + "     VALUES (?,?,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, ticket.getUserID());
-            stm.setString(2, ticket.getPhone());
-            stm.setString(3, ticket.getEmail());
-            stm.setInt(4, ticket.getTimeID());
-            stm.setInt(5, ticket.getRoomID());
-            stm.setInt(6, ticket.getFilmID());
-            stm.setDate(7, ticket.getDate());
-            stm.setInt(8, ticket.getChairID());
-            stm.setInt(9, ticket.getType());
-            stm.setString(10, ticket.getPrice());
+            stm.setInt(2, ticket.getScheduleID());
+            stm.setInt(3, ticket.getChairID());
             stm.execute();
             connection.commit();
         } catch (SQLException ex) {
@@ -54,28 +46,30 @@ public class TicketDBContext extends DBContext {
         }
     }
 
-    public ArrayList<Ticket> getTicket(String phone, String email) {
+    public ArrayList<Ticket> getTicket(int userID) {
         ArrayList<Ticket> tickets = new ArrayList<>();
         try {
-            String sql = "SELECT [TicketID],[Phone],[Email],tk.[TimeID],[Slot],tk.[RoomID],\n"
-                    + "  r.[Name] AS [roomName],[FilmID], f.[Name] AS [filmName],[Note],\n"
-                    + "  [Date],tk.[ChairID],[ChairName],[Image],tk.[TypeName],tk.[Price]\n"
+            String sql = "SELECT [TicketID],u.[ID] AS [UserID],tk.[ScheduleID],s.[TimeID],[Slot],s.[RoomID],\n"
+                    + "  r.[Name] AS [roomName],s.[FilmID], f.[Name] AS [filmName],f.[Note],\n"
+                    + "  s.[Date],tk.[ChairID],c.[ChairName],f.[Image],c.[Type],p.[Price]\n"
                     + "  FROM [Ticket] tk\n"
-                    + "  INNER JOIN Times t ON t.[TimeID] = tk.[TimeID]\n"
-                    + "  INNER JOIN Rooms r ON r.[RoomID] = tk.[RoomID]\n"
-                    + "  INNER JOIN Films f ON f.[ID] = tk.[FilmID]\n"
+                    + "  INNER JOIN Users u ON u.ID = tk.UserID\n"
+                    + "  INNER JOIN Accounts a ON a.Email = u.Email\n"
+                    + "  INNER JOIN Schedules s ON s.[ScheduleID] = tk.[ScheduleID]\n"
+                    + "  INNER JOIN Times t ON t.[TimeID] = s.[TimeID]\n"
+                    + "  INNER JOIN Rooms r ON r.[RoomID] = s.[RoomID]\n"
+                    + "  INNER JOIN Films f ON f.[ID] = s.[FilmID]\n"
                     + "  INNER JOIN Chairs c ON c.[ChairID] = tk.[ChairID]\n"
                     + "  INNER JOIN Price p ON p.[Type] = c.[Type]\n"
-                    + "  WHERE [Phone] = ? AND [Email] = ?";
+                    + "  WHERE u.[ID] = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, phone);
-            stm.setString(2, email);
+            stm.setInt(1, userID);
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Ticket t = new Ticket();
                 t.setTicketID(rs.getInt("TicketID"));
-                t.setPhone(rs.getString("phone"));
-                t.setEmail(rs.getString("email"));
+                t.setUserID(rs.getInt("UserID"));
+                t.setScheduleID(rs.getInt("ScheduleID"));
                 t.setTimeID(rs.getInt("TimeID"));
                 t.setSlot(rs.getString("Slot"));
                 t.setRoomID(rs.getInt("RoomID"));
@@ -87,7 +81,7 @@ public class TicketDBContext extends DBContext {
                 t.setChairID(rs.getInt("ChairID"));
                 t.setChairName(rs.getString("ChairName"));
                 t.setImg(rs.getString("Image"));
-                t.setType(rs.getInt("TypeName"));
+                t.setType(rs.getInt("Type"));
                 t.setPrice(rs.getString("Price"));
                 tickets.add(t);
             }
@@ -100,7 +94,7 @@ public class TicketDBContext extends DBContext {
 
     public static void main(String[] args) {
         TicketDBContext tkdbc = new TicketDBContext();
-        ArrayList<Ticket> tickets = tkdbc.getTicket("0983563147", "tienvdhe153313@fpt.edu.vn");
+        ArrayList<Ticket> tickets = tkdbc.getTicket(1);
         for (Ticket t : tickets) {
             System.out.println(t.getTicketID() + " " + t.getSlot() + " " + t.getRoomName() + " " + t.getFilmName() + " " + t.getNote() + " " + t.getChairName());
         }

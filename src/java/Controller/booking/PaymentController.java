@@ -8,10 +8,10 @@ package Controller.booking;
 import Controller.auth.BaseRequiredAuthController;
 import Model.Chair;
 import Model.Film;
-import Model.Time_Room_Film;
+import Model.Schedule;
 import dal.ChairDBContext;
 import dal.FilmDBContext;
-import dal.Time_Room_FilmDBContext;
+import dal.ScheduleDBContext;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -53,9 +53,9 @@ public class PaymentController extends BaseRequiredAuthController {
         String slot = request.getParameter("slot");
         String chairID = request.getParameter("chairID");
 
-        Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
-        Time_Room_Film trf = trfdbc.getTime_Room_Film(id, date, slot);
-        String roomID = trfdbc.getRoomID(id, date, slot);
+        ScheduleDBContext sdbc = new ScheduleDBContext();
+        Schedule schedule = sdbc.getSchedule(id, date, slot);
+        String roomID = sdbc.getRoomID(id, date, slot);
 
         FilmDBContext fdbc = new FilmDBContext();
         Film film = fdbc.getFilmByID(id);
@@ -67,7 +67,7 @@ public class PaymentController extends BaseRequiredAuthController {
         request.setAttribute("date", date);
         request.setAttribute("slot", slot);
         request.setAttribute("film", film);
-        request.setAttribute("trf", trf);
+        request.setAttribute("schedule", schedule);
         request.setAttribute("chair", chair);
         request.getRequestDispatcher("View/Booking/payment.jsp").forward(request, response);
     }

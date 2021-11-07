@@ -35,13 +35,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Boolean isFail;
-        try {
-            isFail = Boolean.parseBoolean(request.getParameter("isFail"));
-        } catch (Exception e) {
-        }
-        
+        if (request.getSession().getAttribute("account") != null) {
+            response.getWriter().print("pls logout before");
+        } else {
         request.getRequestDispatcher("View/auth/login.jsp").forward(request, response);
+        }
     }
 
     /**

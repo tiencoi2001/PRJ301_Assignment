@@ -37,7 +37,7 @@ public class TransactionsHistoryController extends BaseRequiredAuthController {
         User user = (User) session.getAttribute("user");
 
         TicketDBContext tkdbc = new TicketDBContext();
-        ArrayList<Ticket> tickets = tkdbc.getTicket(user.getPhone(), user.getEmail());
+        ArrayList<Ticket> tickets = tkdbc.getTicket(user.getId());
         
         request.setAttribute("tickets", tickets);
         request.getRequestDispatcher("View/User/transactionsHistory.jsp").forward(request, response);

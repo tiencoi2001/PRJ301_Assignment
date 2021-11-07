@@ -32,7 +32,7 @@ public class HomeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         FilmDBContext fdbc = new FilmDBContext();
-        List<Film> films = fdbc.getFilm(true);
+        List<Film> films = fdbc.getFilmToShowing();
         request.setAttribute("films", films);
         request.getRequestDispatcher("View/Display/home.jsp").forward(request, response);
     }

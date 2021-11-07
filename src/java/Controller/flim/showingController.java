@@ -33,7 +33,7 @@ public class ShowingController extends HttpServlet {
             throws ServletException, IOException {
         FilmDBContext fdbc = new FilmDBContext();
         
-        List<Film> films = fdbc.getFilm(true);
+        List<Film> films = fdbc.getFilmToShowing();
         request.setAttribute("films", films);
         request.getRequestDispatcher("View/film/showing.jsp").forward(request, response);
     }

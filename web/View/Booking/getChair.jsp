@@ -79,8 +79,8 @@
                                         <div class="product-shop">
                                             <div class="f-fix">
                                                 <div class="product-primary">
-                                                    <p>CGV Vincom Thai Nguyen | ${requestScope.trf.roomName}</p>
-                                                <p>${requestScope.trf.date} ${requestScope.trf.slot}</p>
+                                                    <p>CGV Vincom Thai Nguyen | ${requestScope.schedule.roomName}</p>
+                                                <p>${requestScope.schedule.date} ${requestScope.schedule.slot}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -272,11 +272,11 @@
                                                     <tr>
                                                         <td class="label">Showtime</td>
                                                         <td>
-                                                            ${requestScope.trf.slot}, ${requestScope.trf.date}</td>
+                                                            ${requestScope.schedule.slot}, ${requestScope.schedule.date}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="label">Screen</td>
-                                                        <td>${requestScope.trf.roomName}</td>
+                                                        <td>${requestScope.schedule.roomName}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

@@ -8,7 +8,7 @@ package Controller.booking;
 import Controller.auth.BaseRequiredAuthController;
 import Model.Film;
 import dal.FilmDBContext;
-import dal.Time_Room_FilmDBContext;
+import dal.ScheduleDBContext;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -58,8 +58,8 @@ public class GetTimeController extends BaseRequiredAuthController {
         String id = request.getParameter("id");
         String date = request.getParameter("selectDate");
 
-        Time_Room_FilmDBContext trfdbc = new Time_Room_FilmDBContext();
-        ArrayList<String> slots = trfdbc.getTime(id, date);
+        ScheduleDBContext sdbc = new ScheduleDBContext();
+        ArrayList<String> slots = sdbc.getTime(id, date);
 
         FilmDBContext fdbc = new FilmDBContext();
         Film film = fdbc.getFilmByID(id);

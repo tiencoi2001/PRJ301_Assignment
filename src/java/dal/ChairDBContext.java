@@ -50,9 +50,10 @@ public class ChairDBContext extends DBContext {
             String sql = "SELECT [ChairID],[RoomID],[ChairName]\n"
                     + "  FROM [Chairs]\n"
                     + "  WHERE [RoomID] = ? AND [ChairID] NOT IN (SELECT [ChairID]\n"
-                    + "                                             FROM [OrderChair]\n"
-                    + "                                             INNER JOIN [Times] ON [Times].[TimeID] = [OrderChair].[TimeID] \n"
-                    + "                                             WHERE [Slot] = ? and [Date] = ?)";
+                    + "                                           FROM [Ticket] tk\n"
+                    + "                                           INNER JOIN [Schedules] s ON s.[ScheduleID] = tk.[ScheduleID]\n"
+                    + "                                           INNER JOIN [Times] t ON t.TimeID = s.TimeID\n"
+                    + "                                           WHERE [Slot] = ? and [Date] = ?)";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, roomID);
             stm.setString(2, slot);

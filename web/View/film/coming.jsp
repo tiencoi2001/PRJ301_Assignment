@@ -115,18 +115,18 @@
                                             <h2 class="product-name"><a href="https://www.cgv.vn/default/lat-mat-48h.html">${f.name}</a></h2>
 
                                             <div class="cgv-movie-info">
-                                                <span class="cgv-info-bold">Thể loại: </span>
+                                                <span class="cgv-info-bold">Genre: </span>
                                                 <span class="cgv-info-normal">${f.genre}</span>
                                             </div>
 
                                             <div class="cgv-movie-info">
-                                                <span class="cgv-info-bold">Thời lượng: </span>
-                                                <span class="cgv-info-normal">${f.length}</span>
+                                                <span class="cgv-info-bold">Length: </span>
+                                                <span class="cgv-info-normal"></span>
                                             </div>
 
                                             <div class="cgv-movie-info">
-                                                <span class="cgv-info-bold">Khởi chiếu: </span>
-                                                <span class="cgv-info-normal">${f.premiere}</span>
+                                                <span class="cgv-info-bold">Premiere: </span>
+                                                <span class="cgv-info-normal"></span>
                                             </div>
                                         </div>
                                     </li>

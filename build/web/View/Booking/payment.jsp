@@ -93,22 +93,6 @@
                                             </tfoot>
                                         </table>
                                     </div>
-                                    <div id="chosen-payment" class="chosen-payment">
-                                        <table class="data-table">
-                                            <thead>
-                                                <tr>
-                                                    <td colspan="2">Payment </td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="2"><span class="price">₫${requestScope.chair.price}.00</span></td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -129,9 +113,9 @@
                                             <span class="film-session-site">
                                                 <label>Theater</label>CGV Vincom Thai Nguyen</span>						
                                             <span class="film-session-date">
-                                                <label>Showtimes</label>${requestScope.trf.slot}, ${requestScope.trf.date}</span>
+                                                <label>Showtimes</label>${requestScope.schedule.slot}, ${requestScope.schedule.date}</span>
                                             <span class="film-session-screen">
-                                                <label>Screen</label>${requestScope.trf.roomName}</span>
+                                                <label>Screen</label>${requestScope.schedule.roomName}</span>
                                             <span class="film-session-seats">
                                                 <label>Seats</label>
                                                 <span>STD : ${requestScope.chair.name}</span>
@@ -152,10 +136,10 @@
 
                                     <div class="ticket-process-right">
                                         <form action="finishBooking" method="POST">
-                                            <input type="hidden" name="filmID" value="${requestScope.trf.filmID}"/>
-                                            <input type="hidden" name="roomID" value="${requestScope.trf.roomID}"/>
-                                            <input type="hidden" name="timeID" value="${requestScope.trf.timeID}"/>
-                                            <input type="hidden" name="date" value="${requestScope.trf.date}"/>
+                                            <input type="hidden" name="filmID" value="${requestScope.schedule.filmID}"/>
+                                            <input type="hidden" name="roomID" value="${requestScope.schedule.roomID}"/>
+                                            <input type="hidden" name="timeID" value="${requestScope.schedule.timeID}"/>
+                                            <input type="hidden" name="date" value="${requestScope.schedule.date}"/>
                                             <input type="hidden" name="chairID" value="${requestScope.chair.chairID}"/>
                                             <input type="hidden" name="type" value="${requestScope.chair.type}"/>
                                             <input type="hidden" name="price" value="${requestScope.chair.price}"/>

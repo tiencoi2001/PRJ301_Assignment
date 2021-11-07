@@ -85,6 +85,8 @@
                                     <c:if test="${sessionScope.account.role}">
                                     <li ><a href="giveAdminRights">GIVE ADMIN RIGHTS</a></li>
                                     <li ><a class="current" href="removeAdminRights">REMOVE ADMIN RIGHTS</a></li>
+                                    <li ><a href="updateNewShowingFilm">UPDATE NEW SHOWING FILM</a></li>
+                                    <li ><a href="addNewComingFilm">ADD NEW COMING FILM</a></li>
                                     </c:if>
                             </ul>
                         </div>
@@ -96,8 +98,8 @@
                         </div>
                         <form action="accountDetail" method="POST">
                             <div class="fieldset edit-account-my-cgv">
-                                <input type="hidden" name="phone" value="${sessionScope.user.phone}" />
-                                <input type="hidden" name="email" value="${sessionScope.user.email}" />
+                                <input type="hidden" name="phone" value="${sessionScope.account.phone}" />
+                                <input type="hidden" name="email" value="${sessionScope.account.email}" />
                                 <input type="hidden" name="dob" value="${sessionScope.user.dob}"/>
                                 <ul class="form-list edit-info-cgv-left">
                                     <li class="fields">
@@ -121,7 +123,7 @@
                                     </li>
                                     <li>
                                         <label for="email" class="required"><em>*</em>Email Address</label>
-                                        <div class="input-box">${sessionScope.user.email}</div>
+                                        <div class="input-box">${sessionScope.account.email}</div>
                                     </li>
                                 </ul>						
                                 <ul class="form-list edit-info-cgv-right">
